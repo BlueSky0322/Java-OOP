@@ -5,7 +5,6 @@
  */
 package Classes;
 
-import static Classes.Person.isNumeric;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
