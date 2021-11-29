@@ -143,7 +143,7 @@ public class LoginPage extends javax.swing.JFrame {
         if (user.verify_people_login()){
             validationLabel.setText("LOGIN SUCCESSFUL!");
             this.setVisible(false);
-            new Test().setVisible(true);
+            new PeopleMenu().setVisible(true);
         }else{
             validationLabel.setText("INVALID LOGIN!");
             usernameTxt.setText("");
@@ -161,7 +161,7 @@ public class LoginPage extends javax.swing.JFrame {
         if (user.verify_admin_login()){
             validationLabel.setText("LOGIN SUCCESSFUL!");
             this.setVisible(false);
-            new Test().setVisible(true);
+            new PersonnelViewVaxPrgDetails().setVisible(true);
         }else{
             validationLabel.setText("INVALID LOGIN!");
             usernameTxt.setText("");

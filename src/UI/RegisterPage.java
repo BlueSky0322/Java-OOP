@@ -6,7 +6,7 @@
 package UI;
 
 import Classes.Citizen;
-import Classes.Non_citizen;
+import Classes.Noncitizen;
 import Classes.Person;
 
 /**
@@ -53,7 +53,7 @@ public class RegisterPage extends javax.swing.JFrame {
         icPassportNoTxt = new javax.swing.JTextField();
         registerBtn = new javax.swing.JButton();
         errorMessageLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        backToLoginBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,10 +100,10 @@ public class RegisterPage extends javax.swing.JFrame {
         errorMessageLabel.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
         errorMessageLabel.setForeground(new java.awt.Color(255, 51, 51));
 
-        jButton1.setText("Back to Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backToLoginBtn.setText("Back to Login");
+        backToLoginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backToLoginBtnActionPerformed(evt);
             }
         });
 
@@ -122,7 +122,7 @@ public class RegisterPage extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(registerBtn)
                         .addGap(87, 87, 87)
-                        .addComponent(jButton1))
+                        .addComponent(backToLoginBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ageLabel)
@@ -193,7 +193,7 @@ public class RegisterPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerBtn)
-                    .addComponent(jButton1))
+                    .addComponent(backToLoginBtn))
                 .addGap(21, 21, 21))
         );
 
@@ -262,7 +262,7 @@ public class RegisterPage extends javax.swing.JFrame {
         } else {
             citizenRBtn.setSelected(false);
             String passport_no = icPassportNoTxt.getText();
-            Non_citizen nctz = new Non_citizen(person, passport_no);
+            Noncitizen nctz = new Noncitizen(person, passport_no);
             nctz.setPassport_no(passport_no);
             nctz.setIs_citizen(false);
 
@@ -276,10 +276,10 @@ public class RegisterPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_registerBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void backToLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToLoginBtnActionPerformed
         this.setVisible(false);
         new LoginPage().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_backToLoginBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,6 +322,7 @@ public class RegisterPage extends javax.swing.JFrame {
     private javax.swing.JTextField addressTxt;
     private javax.swing.JLabel ageLabel;
     private javax.swing.JTextField ageTxt;
+    private javax.swing.JButton backToLoginBtn;
     private javax.swing.JRadioButton citizenRBtn;
     private javax.swing.JLabel citizenshipLabel;
     private javax.swing.JLabel emailLabel;
@@ -331,7 +332,6 @@ public class RegisterPage extends javax.swing.JFrame {
     private javax.swing.JTextField genderTxt;
     private javax.swing.JLabel icPassportNoLabel;
     private javax.swing.JTextField icPassportNoTxt;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTxt;
     private javax.swing.JRadioButton nonCitizenRBtn;
