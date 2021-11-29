@@ -18,11 +18,11 @@ import java.util.logging.Logger;
  *
  * @author Ryan Ng
  */
-public class Non_citizen extends People {
+public class Noncitizen extends People {
 
     private String passport_no;
 
-    public Non_citizen(Person person, String passport_no) {
+    public Noncitizen(Person person, String passport_no) {
         this.passport_no = passport_no;
         this.name = person.name;
         this.age = person.age;
@@ -72,8 +72,6 @@ public class Non_citizen extends People {
         }
     }
 
-    @Override
-    public void modify_details() {
-    }
+    
 
 }

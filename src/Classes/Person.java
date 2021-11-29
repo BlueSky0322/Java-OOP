@@ -6,10 +6,13 @@
 package Classes;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -135,13 +138,39 @@ public class Person {
         return false;
     }
 
+    public boolean search_id(String search) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("People.txt"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] ary = line.split(":");
+                if (ary.length < 1) {
+                    break;
+                }
+                if (search.equals(ary[7])) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public String validate_tel_no() {
         if (this.tel_no.isEmpty() || !isNumeric(this.tel_no)) {
             return "Invalid Telephone No., ";
         }
-        
-        if (this.check_duplicate()){
+
+        if (this.check_duplicate()) {
             return "Duplicate record detected. Please try again.";
+        }
+        return "";
+    }
+
+    public String validate_tel_no_format() {
+        if (this.tel_no.isEmpty() || !isNumeric(this.tel_no)) {
+            return "Invalid Telephone No., ";
         }
         return "";
     }
@@ -160,4 +189,56 @@ public class Person {
         return "";
     }
 
+    public ArrayList<String[]> modify_details(String search, String mode) {
+        ArrayList<String[]> arrayList = new ArrayList();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("People.txt"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] ary = line.split(":");
+                if (ary.length < 1) {
+                    break;
+                } else {
+                    arrayList.add(ary);
+                }
+            }
+
+            if (mode.equals("modify")) {
+                for (String[] element : arrayList) {
+                    if (search.equals(element[7])) {
+                        element[0] = this.name;
+                        element[1] = Integer.toString(this.age);
+                        element[2] = Character.toString(this.gender);
+                        element[3] = this.tel_no;
+                        element[4] = this.email;
+                        element[5] = this.address;
+                    }
+                }
+            } else {
+                
+                for (Iterator<String[]> iterator = arrayList.iterator(); iterator.hasNext();) {
+                    String[] value = iterator.next();
+                    if (search.equals(value[7])) {
+                        iterator.remove();
+                    }
+                }
+            }
+
+            BufferedWriter bw = new BufferedWriter(new FileWriter("People.txt"));
+            PrintWriter pw = new PrintWriter(bw);
+            for (String[] element : arrayList) {
+                pw.println(element[0] + ":" + element[1] + ":" + element[2] + ":" + element[3] + ":"
+                        + element[4] + ":" + element[5] + ":" + element[6] + ":"
+                        + element[7]);
+            }
+
+            pw.flush();
+            pw.close();
+            bw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return arrayList;
+    }
 }

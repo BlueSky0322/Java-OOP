@@ -9,6 +9,6 @@ package Classes;
  *
  * @author Ryan Ng
  */
-public abstract class People extends User{
-    public abstract void register_vax_prg();
+public class BankTransfer {
+    
 }
