@@ -6,7 +6,7 @@
 package UI;
 
 import Classes.Citizen;
-import Classes.Non_citizen;
+import Classes.Noncitizen;
 import Classes.Person;
 
 /**
@@ -33,6 +33,7 @@ public class RegisterPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         nameLabel = new javax.swing.JLabel();
         ageLabel = new javax.swing.JLabel();
         genderLabel = new javax.swing.JLabel();
@@ -53,7 +54,9 @@ public class RegisterPage extends javax.swing.JFrame {
         icPassportNoTxt = new javax.swing.JTextField();
         registerBtn = new javax.swing.JButton();
         errorMessageLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        backToLoginBtn = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,7 +72,19 @@ public class RegisterPage extends javax.swing.JFrame {
 
         addressLabel.setText("Address:");
 
-        TITLE.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        nameTxt.setText("dasd");
+
+        ageTxt.setText("12");
+
+        genderTxt.setText("M");
+
+        telNoTxt.setText("364564");
+
+        emailTxt.setText("asdasdas");
+
+        addressTxt.setText("asdasdasd");
+
+        TITLE.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         TITLE.setText("REGISTER PAGE");
 
         citizenshipLabel.setText("Citizenship:");
@@ -90,6 +105,8 @@ public class RegisterPage extends javax.swing.JFrame {
             }
         });
 
+        icPassportNoTxt.setText("ABC");
+
         registerBtn.setText("Register");
         registerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,10 +117,10 @@ public class RegisterPage extends javax.swing.JFrame {
         errorMessageLabel.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
         errorMessageLabel.setForeground(new java.awt.Color(255, 51, 51));
 
-        jButton1.setText("Back to Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backToLoginBtn.setText("Back to Login");
+        backToLoginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backToLoginBtnActionPerformed(evt);
             }
         });
 
@@ -112,52 +129,58 @@ public class RegisterPage extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(errorMessageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(TITLE))
+                        .addContainerGap()
+                        .addComponent(errorMessageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(registerBtn)
-                        .addGap(87, 87, 87)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ageLabel)
-                            .addComponent(nameLabel)
-                            .addComponent(telNoLabel)
-                            .addComponent(emailLabel)
-                            .addComponent(addressLabel)
-                            .addComponent(genderLabel)
-                            .addComponent(citizenshipLabel)
-                            .addComponent(icPassportNoLabel))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ageTxt)
-                                .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(emailTxt)
-                                .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(telNoTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(citizenRBtn)
-                                    .addGap(34, 34, 34)
-                                    .addComponent(nonCitizenRBtn))))))
-                .addContainerGap(92, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(registerBtn)
+                                .addGap(65, 65, 65)
+                                .addComponent(backToLoginBtn))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ageLabel)
+                                    .addComponent(nameLabel)
+                                    .addComponent(telNoLabel)
+                                    .addComponent(emailLabel)
+                                    .addComponent(addressLabel)
+                                    .addComponent(genderLabel)
+                                    .addComponent(citizenshipLabel)
+                                    .addComponent(icPassportNoLabel))
+                                .addGap(38, 38, 38)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(ageTxt)
+                                        .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(emailTxt)
+                                        .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(telNoTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(citizenRBtn)
+                                            .addGap(34, 34, 34)
+                                            .addComponent(nonCitizenRBtn))))))
+                        .addGap(0, 123, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(TITLE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(TITLE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(errorMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(errorMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
                     .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -193,7 +216,7 @@ public class RegisterPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerBtn)
-                    .addComponent(jButton1))
+                    .addComponent(backToLoginBtn))
                 .addGap(21, 21, 21))
         );
 
@@ -262,24 +285,26 @@ public class RegisterPage extends javax.swing.JFrame {
         } else {
             citizenRBtn.setSelected(false);
             String passport_no = icPassportNoTxt.getText();
-            Non_citizen nctz = new Non_citizen(person, passport_no);
+            Noncitizen nctz = new Noncitizen(person, passport_no);
             nctz.setPassport_no(passport_no);
             nctz.setIs_citizen(false);
 
             errorMessages += nctz.validate_passportno();
-            
+
             if (errorMessages.isEmpty()) {
                 nctz.register_vax_prg();
+                this.setVisible(false);
+                new PaymentPage(nctz.getPassport_no()).setVisible(true);
             } else {
                 errorMessageLabel.setText(errorMessages);
             }
         }
     }//GEN-LAST:event_registerBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void backToLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToLoginBtnActionPerformed
         this.setVisible(false);
         new LoginPage().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_backToLoginBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,6 +347,7 @@ public class RegisterPage extends javax.swing.JFrame {
     private javax.swing.JTextField addressTxt;
     private javax.swing.JLabel ageLabel;
     private javax.swing.JTextField ageTxt;
+    private javax.swing.JButton backToLoginBtn;
     private javax.swing.JRadioButton citizenRBtn;
     private javax.swing.JLabel citizenshipLabel;
     private javax.swing.JLabel emailLabel;

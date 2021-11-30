@@ -11,5 +11,4 @@ package Classes;
  */
 public abstract class People extends User{
     public abstract void register_vax_prg();
-    public abstract void modify_details();
 }

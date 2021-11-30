@@ -5,9 +5,15 @@
  */
 package Classes;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -17,15 +23,20 @@ public class Citizen extends People {
 
     private String ic_no;
 
-    public Citizen(Person person, String ic_no){
+    public Citizen() {
+    }
+
+    ;
+    
+    public Citizen(Person person, String ic_no) {
         this.ic_no = ic_no;
         this.name = person.name;
-        this.age =  person.age;
+        this.age = person.age;
         this.gender = person.gender;
         this.tel_no = person.tel_no;
         this.email = person.email;
         this.address = person.address;
-    } 
+    }
 
     /**
      * Get the value of ic_no
@@ -66,11 +77,6 @@ public class Citizen extends People {
             e.printStackTrace();
         }
 
-    }
-
-    @Override
-    public void modify_details() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
