@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package Classes;
-
-import static Classes.Person.isNumeric;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Ryan Ng
