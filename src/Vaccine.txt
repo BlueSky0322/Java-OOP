@@ -1,0 +1,3 @@
+PF:Pfizer:3 weeks:3 months
+AZ:Aztrazeneca:3 weeks: 3 months
+SV:Sinovac:3 weeks:3 months
