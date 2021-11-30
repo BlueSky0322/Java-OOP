@@ -17,6 +17,14 @@ public class Vaccine {
     private String vax_time_delta;
     private String booster_time_delta;
 
+    public Vaccine(String vax_code,String vax_name,int vax_quantity,String vax_time_delta,String booster_time_delta){
+        setVax_code(vax_code);
+        setVax_name(vax_name);
+        setVax_quantity(vax_quantity);
+        setVax_time_delta(vax_time_delta);
+        setBooster_time_delta(booster_time_delta);
+    }
+    
     public String getVax_code() {
         return vax_code;
     }
