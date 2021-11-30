@@ -5,6 +5,8 @@
  */
 package Main;
 
+import Classes.Vaccine;
+import Classes.Admin_Staff;
 import UI.LoginPage;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -23,6 +25,6 @@ public class OODJ {
      */
     public static void main(String[] args) {
         LoginPage login = new LoginPage();
-        login.setVisible(true);
+        login.setVisible(true);        
     }
 }
