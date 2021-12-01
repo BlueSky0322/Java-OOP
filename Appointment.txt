@@ -1,1 +1,5 @@
-123:Pfizer:744:Tun Razak Medical Centre:Bandar Tun Razak:04 December 2021:25 December 2021:11 June 2022
+010601131015:Pfizer:752:Hussein Onn Medical Centre:Bandar Tun Hussein Onn:05 December 2021:26 December 2021:12 June 2022:NOT_VACCINATED
+971801131015:Aztrazeneca:184:Tun Razak Medical Centre:Bandar Tun Razak:05 December 2021:30 January 2022:17 July 2022:NOT_VACCINATED
+A12391028B:Pfizer:787:Hussein Onn Medical Centre:Bandar Tun Hussein Onn:05 December 2021:26 December 2021:12 June 2022:NOT_VACCINATED
+456456:Sinovac:999:Abdul Rahman Medical Centre:Bandar Abdul Rahman:05 December 2021:19 December 2021:13 March 2022:NOT_VACCINATED
+123:Aztrazeneca:153:Abdul Rahman Medical Centre:Bandar Abdul Rahman:05 December 2021:19 December 2021:13 March 2022:FIRST_DOSE_COMPLETE
