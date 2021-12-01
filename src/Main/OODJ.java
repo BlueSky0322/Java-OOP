@@ -6,7 +6,8 @@
 package Main;
 
 import UI.LoginPage;
-import UI.RegisterVaxApt;
+import UI.PeopleRegisterVaxApt;
+import UI.PersonnelViewVaxApt;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -21,7 +22,7 @@ public class OODJ {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        RegisterVaxApt login = new RegisterVaxApt();
+        LoginPage login = new LoginPage();
         login.setVisible(true);
 //        System.out.println(getFirst_dose_date());
     }
