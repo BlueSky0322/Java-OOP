@@ -108,11 +108,13 @@ public class PeopleMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_viewDetailsBtnActionPerformed
 
     private void registerVaxAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerVaxAptBtnActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new RegisterVaxApt().setVisible(true);
     }//GEN-LAST:event_registerVaxAptBtnActionPerformed
 
     private void viewVaxAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewVaxAptBtnActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new ViewVaxApt().setVisible(true);
     }//GEN-LAST:event_viewVaxAptBtnActionPerformed
 
     private void viewVaxStatusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewVaxStatusBtnActionPerformed
