@@ -66,7 +66,4 @@ public class Noncitizen extends People {
             e.printStackTrace();
         }
     }
-
-    
-
 }

@@ -33,6 +33,15 @@ public class Appointment implements VaxDetails, GenerateID {
     private String first_dose_date;
     private String second_dose_date;
     private String booster_dose_date;
+    private String vax_status;
+
+    public String getVax_status() {
+        return vax_status;
+    }
+
+    public void setVax_status(String vax_status) {
+        this.vax_status = vax_status;
+    }
 
     public String getCentre_address() {
         return centre_address;
@@ -117,7 +126,7 @@ public class Appointment implements VaxDetails, GenerateID {
     public int generateID() {
         return ThreadLocalRandom.current().nextInt(100, 999 + 1);
     }
-
+    
     public boolean validate_ic_passport_no(String filename, String ic_passport_no, int column) {
         ArrayList<String[]> arrayList = DataAccess.get_data(filename);
         for (String[] element : arrayList) {
@@ -169,7 +178,7 @@ public class Appointment implements VaxDetails, GenerateID {
         }
         return 0;
     }
-
+    
     public String retrieve_centre_details(String centre_id, int column) {
         ArrayList<String[]> arrayList = DataAccess.get_data("Centre.txt");
         for (String[] element : arrayList) {
@@ -184,8 +193,9 @@ public class Appointment implements VaxDetails, GenerateID {
         BufferedWriter bw;
         try {
             bw = new BufferedWriter(new FileWriter("Appointment.txt", true));
-            bw.write(this.getIc_passport_no() + ":" + this.getVaccine_name() + ":" + this.getAppointment_id() + ":" + this.getCentre_name()
-                    + ":" + this.getCentre_address() + ":" + this.getFirst_dose_date() + ":" + this.getSecond_dose_date() + ":" + this.getBooster_dose_date());
+            bw.write(this.getIc_passport_no() + ":" + this.getVaccine_name() + ":" + this.getAppointment_id() + ":" + this.getCentre_name() + ":" 
+                    + this.getCentre_address() + ":" + this.getFirst_dose_date() + ":" + this.getSecond_dose_date() + ":" + this.getBooster_dose_date() + ":" 
+                    + this.getVax_status());
             bw.write(System.getProperty("line.separator"));
             bw.close();
         } catch (IOException e) {
@@ -207,6 +217,7 @@ public class Appointment implements VaxDetails, GenerateID {
                     element[5] = this.first_dose_date;
                     element[6] = this.second_dose_date;
                     element[7] = this.booster_dose_date;
+                    element[8] = this.vax_status;
                 }
             }
         } else {
@@ -225,7 +236,7 @@ public class Appointment implements VaxDetails, GenerateID {
                 for (String[] element : arrayList) {
                     pw.println(element[0] + ":" + element[1] + ":" + element[2] + ":" + element[3] + ":"
                             + element[4] + ":" + element[5] + ":" + element[6] + ":"
-                            + element[7]);
+                            + element[7] + ":" + element[8] );
                 }
                 pw.flush();
             }

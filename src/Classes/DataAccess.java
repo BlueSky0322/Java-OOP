@@ -15,7 +15,6 @@ import java.util.ArrayList;
  * @author Ryan Ng
  */
 public class DataAccess {
-
     public static ArrayList<String[]> get_data(String filename) {
         ArrayList<String[]> arrayList = new ArrayList();
         try {
@@ -36,7 +35,7 @@ public class DataAccess {
     }
     
     public static String[] get_vac_apt_by_id(String id) {
-        String[] arrayList = new String[8];
+        String[] arrayList = new String[9];
         try {
             BufferedReader br = new BufferedReader(new FileReader("Appointment.txt"));
             String line;
