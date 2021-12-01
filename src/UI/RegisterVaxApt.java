@@ -6,7 +6,9 @@
 package UI;
 
 import Classes.Appointment;
+import Classes.People;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JOptionPane;
@@ -22,12 +24,6 @@ public class RegisterVaxApt extends javax.swing.JFrame {
      */
     public RegisterVaxApt() {
         initComponents();
-        aptIDTxt.setEditable(false);
-        centreNameTxt.setEditable(false);
-        centreAddressTxt.setEditable(false);
-        fddTxt.setEditable(false);
-        sddTxt.setEditable(false);
-        bddTxt.setEditable(false);
     }
 
     /**
@@ -40,24 +36,12 @@ public class RegisterVaxApt extends javax.swing.JFrame {
     private void initComponents() {
 
         titleCard = new javax.swing.JLabel();
-        bddTxt = new javax.swing.JTextField();
         icPassportNoLabel = new javax.swing.JLabel();
         vaccineNameLabel = new javax.swing.JLabel();
-        centreNameLabel = new javax.swing.JLabel();
-        aptIDLabel = new javax.swing.JLabel();
-        fddLabel = new javax.swing.JLabel();
-        sddLabel = new javax.swing.JLabel();
-        bddLabel = new javax.swing.JLabel();
         vaxNameComboBox = new javax.swing.JComboBox<>();
         icPassportNoTxt = new javax.swing.JTextField();
-        aptIDTxt = new javax.swing.JTextField();
-        centreNameTxt = new javax.swing.JTextField();
-        fddTxt = new javax.swing.JTextField();
-        sddTxt = new javax.swing.JTextField();
         registerAptBtn = new javax.swing.JButton();
         backToMenuBtn = new javax.swing.JButton();
-        centreAddressLabel = new javax.swing.JLabel();
-        centreAddressTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,16 +52,6 @@ public class RegisterVaxApt extends javax.swing.JFrame {
         icPassportNoLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         vaccineNameLabel.setText("Choose Vaccine:");
-
-        centreNameLabel.setText("Centre Name:");
-
-        aptIDLabel.setText("Appointment ID:");
-
-        fddLabel.setText("First Dose Date:");
-
-        sddLabel.setText("Second Dose Date:");
-
-        bddLabel.setText("Booster Dose Date:");
 
         vaxNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pfizer", "Aztrazeneca", "Sinovac" }));
         vaxNameComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -100,63 +74,38 @@ public class RegisterVaxApt extends javax.swing.JFrame {
             }
         });
 
-        centreAddressLabel.setText("Centre Address:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(titleCard)
-                .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(registerAptBtn)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(titleCard)
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(bddLabel)
-                                        .addGap(26, 26, 26))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(sddLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(fddLabel, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(bddTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                                    .addComponent(fddTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                                    .addComponent(sddTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
-                            .addComponent(backToMenuBtn)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
                             .addComponent(icPassportNoLabel)
-                            .addGap(18, 18, 18)
-                            .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(vaccineNameLabel)
-                                .addComponent(aptIDLabel)
-                                .addComponent(centreNameLabel)
-                                .addComponent(centreAddressLabel))
-                            .addGap(41, 41, 41)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(aptIDTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                                .addComponent(vaxNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(centreNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                                .addComponent(centreAddressTxt)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(vaccineNameLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(vaxNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(91, 91, 91))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(191, 191, 191)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(registerAptBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(backToMenuBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(titleCard)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(icPassportNoLabel)
                     .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -164,35 +113,11 @@ public class RegisterVaxApt extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(vaccineNameLabel)
                     .addComponent(vaxNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(registerAptBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aptIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aptIDLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(centreNameLabel)
-                    .addComponent(centreNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(centreAddressLabel)
-                    .addComponent(centreAddressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fddTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fddLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sddTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sddLabel))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bddLabel)
-                    .addComponent(bddTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registerAptBtn)
-                    .addComponent(backToMenuBtn))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addComponent(backToMenuBtn)
+                .addGap(26, 26, 26))
         );
 
         pack();
@@ -225,34 +150,41 @@ public class RegisterVaxApt extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Something went wrong, please try again.");
             }
-            if (apt.validate_ic_passport_no("Appointment.txt", ic_passport_no, 0)) {
-                JOptionPane.showMessageDialog(null, "Duplicate record detected! Please try again.");
+
+            File f = new File("Appointment.txt");
+            if (f.exists() && !f.isDirectory()) {
+                if (apt.validate_ic_passport_no("Appointment.txt", ic_passport_no, 0)) {
+                    JOptionPane.showMessageDialog(null, "Duplicate record detected! Please try again.");
+                } else {
+                    apt.register_vax_apt();
+                    icPassportNoTxt.setText("");
+                    vaxNameComboBox.setSelectedIndex(0);
+                    JOptionPane.showMessageDialog(null, "Registration Successful.");
+                }
             } else {
                 apt.register_vax_apt();
+                icPassportNoTxt.setText("");
+                vaxNameComboBox.setSelectedIndex(0);
                 JOptionPane.showMessageDialog(null, "Registration Successful.");
             }
         } else {
             JOptionPane.showMessageDialog(null, "IC/Passport Number not found!\nPlease register first.");
         }
-
-
     }//GEN-LAST:event_registerAptBtnActionPerformed
 
     public void assign_aptdetails(Appointment apt, String vax_name) {
-        apt.setVaccine_name(vaxNameComboBox.getSelectedItem().toString());
-        apt.setAppointment_id(apt.generateID());
-        apt.setCentre_name(apt.retrieve_centre_name(apt.validate_vax_quantity(vax_name)));
-        apt.setCentre_address(apt.retrieve_centre_address(apt.validate_vax_quantity(vax_name)));
-        apt.setFirst_dose_date(apt.setfdd());
-        apt.setSecond_dose_date(apt.setsdd(apt.retrieve_time_delta(vax_name, "Second dose")));
-        apt.setBooster_dose_date(apt.setbdd(apt.retrieve_time_delta(vax_name, "Booster dose")));
-
-        aptIDTxt.setText(Integer.toString(apt.getAppointment_id()));
-        centreNameTxt.setText(apt.getCentre_name());
-        centreAddressTxt.setText(apt.getCentre_address());
-        fddTxt.setText(apt.getFirst_dose_date());
-        sddTxt.setText(apt.getSecond_dose_date());
-        bddTxt.setText(apt.getBooster_dose_date());
+        String centre_id = apt.validate_vax_quantity(vax_name);
+        if (People.isNumeric(centre_id)) {
+            apt.setVaccine_name(vaxNameComboBox.getSelectedItem().toString());
+            apt.setAppointment_id(apt.generateID());
+            apt.setCentre_name(apt.retrieve_centre_details(centre_id, 1));
+            apt.setCentre_address(apt.retrieve_centre_details(centre_id, 2));
+            apt.setFirst_dose_date(apt.setfdd());
+            apt.setSecond_dose_date(apt.setsdd(apt.retrieve_time_delta(vax_name, "Second dose")));
+            apt.setBooster_dose_date(apt.setbdd(apt.retrieve_time_delta(vax_name, "Booster dose")));
+        } else {
+            JOptionPane.showMessageDialog(null, centre_id);//centre id will be error if all centres have insufficient vacs
+        }
     }
 
     /**
@@ -291,22 +223,10 @@ public class RegisterVaxApt extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel aptIDLabel;
-    private javax.swing.JTextField aptIDTxt;
     private javax.swing.JButton backToMenuBtn;
-    private javax.swing.JLabel bddLabel;
-    private javax.swing.JTextField bddTxt;
-    private javax.swing.JLabel centreAddressLabel;
-    private javax.swing.JTextField centreAddressTxt;
-    private javax.swing.JLabel centreNameLabel;
-    private javax.swing.JTextField centreNameTxt;
-    private javax.swing.JLabel fddLabel;
-    private javax.swing.JTextField fddTxt;
     private javax.swing.JLabel icPassportNoLabel;
     private javax.swing.JTextField icPassportNoTxt;
     private javax.swing.JButton registerAptBtn;
-    private javax.swing.JLabel sddLabel;
-    private javax.swing.JTextField sddTxt;
     private javax.swing.JLabel titleCard;
     private javax.swing.JLabel vaccineNameLabel;
     private javax.swing.JComboBox<String> vaxNameComboBox;

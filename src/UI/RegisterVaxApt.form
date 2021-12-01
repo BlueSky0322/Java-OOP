@@ -23,65 +23,34 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace pref="29" max="32767" attributes="0"/>
-              <Component id="titleCard" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="registerAptBtn" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="bddLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="sddLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fddLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="bddTxt" pref="186" max="32767" attributes="0"/>
-                                  <Component id="fddTxt" alignment="0" pref="186" max="32767" attributes="0"/>
-                                  <Component id="sddTxt" alignment="0" pref="186" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="backToMenuBtn" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="titleCard" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="icPassportNoLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="vaccineNameLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="icPassportNoTxt" min="-2" pref="186" max="-2" attributes="0"/>
+                          <Component id="vaxNameComboBox" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="vaccineNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="aptIDLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="centreNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="centreAddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="aptIDTxt" pref="186" max="32767" attributes="0"/>
-                              <Component id="vaxNameComboBox" min="-2" max="-2" attributes="0"/>
-                              <Component id="centreNameTxt" alignment="0" pref="186" max="32767" attributes="0"/>
-                              <Component id="centreAddressTxt" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="registerAptBtn" max="32767" attributes="0"/>
+                  <Component id="backToMenuBtn" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,7 +59,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="titleCard" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="icPassportNoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="icPassportNoTxt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -100,42 +69,11 @@
                   <Component id="vaccineNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="vaxNameComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <Component id="registerAptBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="aptIDTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="aptIDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="centreNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="centreNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="centreAddressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="centreAddressTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="fddTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fddLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="sddTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="sddLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="bddLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="bddTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="registerAptBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="backToMenuBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="87" max="32767" attributes="0"/>
+              <Component id="backToMenuBtn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -149,8 +87,6 @@
         <Property name="text" type="java.lang.String" value="REGISTER VACCINATION APPOINTMENT"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="bddTxt">
-    </Component>
     <Component class="javax.swing.JLabel" name="icPassportNoLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="IC/Passport Number:"/>
@@ -160,31 +96,6 @@
     <Component class="javax.swing.JLabel" name="vaccineNameLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Choose Vaccine:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="centreNameLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Centre Name:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="aptIDLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Appointment ID:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="fddLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="First Dose Date:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="sddLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Second Dose Date:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="bddLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Booster Dose Date:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="vaxNameComboBox">
@@ -206,14 +117,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="icPassportNoTxt">
     </Component>
-    <Component class="javax.swing.JTextField" name="aptIDTxt">
-    </Component>
-    <Component class="javax.swing.JTextField" name="centreNameTxt">
-    </Component>
-    <Component class="javax.swing.JTextField" name="fddTxt">
-    </Component>
-    <Component class="javax.swing.JTextField" name="sddTxt">
-    </Component>
     <Component class="javax.swing.JButton" name="registerAptBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Register Appointment"/>
@@ -229,13 +132,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backToMenuBtnActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="centreAddressLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Centre Address:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="centreAddressTxt">
     </Component>
   </SubComponents>
 </Form>
