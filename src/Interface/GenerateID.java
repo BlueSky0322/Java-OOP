@@ -10,5 +10,5 @@ package Interface;
  * @author Ryan Ng
  */
 public interface GenerateID {
-    void generateID();
+    int generateID();
 }
