@@ -269,7 +269,7 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
             errorMessages += person.validate_address();
             
             if (errorMessages.isEmpty()) {
-                person.modify_details(search, "remove");
+                person.modify_details(search, "modify");
             } else {
                 errorMessageLabel.setText(errorMessages);
             }
