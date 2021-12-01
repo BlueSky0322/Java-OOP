@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package Interface;
 
 /**
  *
  * @author Ryan Ng
  */
-public class Test {
-    
+public interface VaxDetails {
+    static final int FFD_AFTER = 3;
+    static final int MIN_QUANTITY = 100;
+    String setfdd();
+    String setsdd(int a);
+    String setbdd(int a);
 }

@@ -5,14 +5,11 @@
  */
 package Main;
 
-import Classes.Vaccine;
-import Classes.Admin_Staff;
 import UI.LoginPage;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import UI.RegisterVaxApt;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -24,7 +21,13 @@ public class OODJ {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        LoginPage login = new LoginPage();
-        login.setVisible(true);        
+        RegisterVaxApt login = new RegisterVaxApt();
+        login.setVisible(true);
+//        System.out.println(getFirst_dose_date());
+    }
+
+    public static String getFirst_dose_date() {
+        String first_dose_date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"));
+        return first_dose_date;
     }
 }
