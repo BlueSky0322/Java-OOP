@@ -8,6 +8,7 @@ package UI;
 import Classes.Citizen;
 import Classes.Noncitizen;
 import Classes.Person;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -72,18 +73,6 @@ public class RegisterPage extends javax.swing.JFrame {
 
         addressLabel.setText("Address:");
 
-        nameTxt.setText("dasd");
-
-        ageTxt.setText("12");
-
-        genderTxt.setText("M");
-
-        telNoTxt.setText("364564");
-
-        emailTxt.setText("asdasdas");
-
-        addressTxt.setText("asdasdasd");
-
         TITLE.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         TITLE.setText("REGISTER PAGE");
 
@@ -104,8 +93,6 @@ public class RegisterPage extends javax.swing.JFrame {
                 nonCitizenRBtnActionPerformed(evt);
             }
         });
-
-        icPassportNoTxt.setText("ABC");
 
         registerBtn.setText("Register");
         registerBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -128,13 +115,11 @@ public class RegisterPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(errorMessageLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(errorMessageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
+                        .addGap(126, 126, 126)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(65, 65, 65)
@@ -143,15 +128,16 @@ public class RegisterPage extends javax.swing.JFrame {
                                 .addComponent(backToLoginBtn))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ageLabel)
-                                    .addComponent(nameLabel)
                                     .addComponent(telNoLabel)
-                                    .addComponent(emailLabel)
-                                    .addComponent(addressLabel)
-                                    .addComponent(genderLabel)
-                                    .addComponent(citizenshipLabel)
-                                    .addComponent(icPassportNoLabel))
-                                .addGap(38, 38, 38)
+                                    .addComponent(emailLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(genderLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ageLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(addressLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(icPassportNoLabel)
+                                        .addComponent(citizenshipLabel)))
+                                .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(ageTxt)
@@ -165,22 +151,18 @@ public class RegisterPage extends javax.swing.JFrame {
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(citizenRBtn)
                                             .addGap(34, 34, 34)
-                                            .addComponent(nonCitizenRBtn))))))
-                        .addGap(0, 123, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addComponent(TITLE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(nonCitizenRBtn)))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(TITLE)))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(TITLE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errorMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
                     .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -217,7 +199,9 @@ public class RegisterPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerBtn)
                     .addComponent(backToLoginBtn))
-                .addGap(21, 21, 21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(errorMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -279,6 +263,7 @@ public class RegisterPage extends javax.swing.JFrame {
 
             if (errorMessages.isEmpty()) {
                 ctz.register_vax_prg();
+                JOptionPane.showMessageDialog(null, "Registration successful");
             } else {
                 errorMessageLabel.setText(errorMessages);
             }
@@ -293,6 +278,7 @@ public class RegisterPage extends javax.swing.JFrame {
 
             if (errorMessages.isEmpty()) {
                 nctz.register_vax_prg();
+                JOptionPane.showMessageDialog(null, "Registration successful.\nPlease proceed to payment.");
                 this.setVisible(false);
                 new PaymentPage(nctz.getPassport_no()).setVisible(true);
             } else {

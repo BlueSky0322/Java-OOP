@@ -30,14 +30,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="errorMessageLabel" alignment="1" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="errorMessageLabel" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
@@ -47,16 +44,18 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="telNoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="emailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="genderLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="citizenshipLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="icPassportNoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emailLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="genderLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ageLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addressLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="icPassportNoLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="citizenshipLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="ageTxt" max="32767" attributes="0"/>
@@ -77,26 +76,22 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="123" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
+                      <Component id="TITLE" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
-              <Component id="TITLE" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="127" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
               <Component id="TITLE" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="errorMessageLabel" min="-2" pref="25" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="nameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -142,7 +137,9 @@
                   <Component id="registerBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="backToLoginBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="errorMessageLabel" min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -179,34 +176,16 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nameTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="dasd"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="ageTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="12"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="genderTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="M"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="telNoTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="364564"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="emailTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="asdasdas"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="addressTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="asdasdasd"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="TITLE">
       <Properties>
@@ -243,9 +222,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="icPassportNoTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ABC"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="registerBtn">
       <Properties>

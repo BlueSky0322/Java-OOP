@@ -6,6 +6,7 @@
 package UI;
 
 import Classes.User;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,7 +38,6 @@ public class LoginPage extends javax.swing.JFrame {
         loginPersonnelBtn = new javax.swing.JButton();
         loginPeopleBtn = new javax.swing.JButton();
         usernameTxt = new javax.swing.JTextField();
-        validationLabel = new javax.swing.JLabel();
         registerBtn = new javax.swing.JButton();
         passwordTxt = new javax.swing.JPasswordField();
 
@@ -65,7 +65,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        registerBtn.setText("Register");
+        registerBtn.setText("Register New People");
         registerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerBtnActionPerformed(evt);
@@ -93,17 +93,13 @@ public class LoginPage extends javax.swing.JFrame {
                                     .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(validationLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(loginPersonnelBtn)
-                        .addGap(31, 31, 31)
+                        .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(loginPeopleBtn)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(registerBtn)
-                                .addGap(23, 23, 23)))))
+                            .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(loginPersonnelBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(loginPeopleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -119,15 +115,13 @@ public class LoginPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel)
                     .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(validationLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginPersonnelBtn)
-                    .addComponent(loginPeopleBtn))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(loginPeopleBtn)
+                    .addComponent(loginPersonnelBtn, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(registerBtn)
-                .addGap(25, 25, 25))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,11 +135,11 @@ public class LoginPage extends javax.swing.JFrame {
         user.setPassword(password);
         
         if (user.verify_people_login()){
-            validationLabel.setText("LOGIN SUCCESSFUL!");
+            JOptionPane.showMessageDialog(null, "Login successful!");
             this.setVisible(false);
             new PeopleMenu().setVisible(true);
         }else{
-            validationLabel.setText("INVALID LOGIN!");
+            JOptionPane.showMessageDialog(null, "Invalid login!");
             usernameTxt.setText("");
             passwordTxt.setText("");
         }
@@ -159,11 +153,11 @@ public class LoginPage extends javax.swing.JFrame {
         user.setPassword(password);
         
         if (user.verify_admin_login()){
-            validationLabel.setText("LOGIN SUCCESSFUL!");
+            JOptionPane.showMessageDialog(null, "Login successful!");
             this.setVisible(false);
-            new PersonnelViewVaxPrgDetails().setVisible(true);
+            new PersonnelMenu().setVisible(true);
         }else{
-            validationLabel.setText("INVALID LOGIN!");
+            JOptionPane.showMessageDialog(null, "Invalid login!");
             usernameTxt.setText("");
             passwordTxt.setText("");
         }
@@ -218,6 +212,5 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JButton registerBtn;
     private javax.swing.JLabel usernameLabel;
     private javax.swing.JTextField usernameTxt;
-    private javax.swing.JLabel validationLabel;
     // End of variables declaration//GEN-END:variables
 }
