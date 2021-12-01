@@ -22,6 +22,9 @@ public class RegisterVaxApt extends javax.swing.JFrame {
      */
     public RegisterVaxApt() {
         initComponents();
+        aptIDTxt.setEditable(false);
+        centreNameTxt.setEditable(false);
+        centreAddressTxt.setEditable(false);
         fddTxt.setEditable(false);
         sddTxt.setEditable(false);
         bddTxt.setEditable(false);
@@ -207,29 +210,46 @@ public class RegisterVaxApt extends javax.swing.JFrame {
     private void registerAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAptBtnActionPerformed
         Appointment apt = new Appointment();
         String ic_passport_no = icPassportNoTxt.getText();
-        
+        apt.setIc_passport_no(ic_passport_no);
+
         //check if input exists in People.txt
-        if (apt.validate_ic_passport_no(ic_passport_no)) {
-            
+        if (apt.validate_ic_passport_no("People.txt", ic_passport_no, 7)) {
+
             //setting vax first, second, booster dose date fields
             if (vaxNameComboBox.getSelectedItem().equals("Pfizer")) {
-                assign_dates(apt, "Pfizer");
-            }else if(vaxNameComboBox.getSelectedItem().equals("Aztrazeneca")){
-                assign_dates(apt, "Aztrazeneca");
-            }else if(vaxNameComboBox.getSelectedItem().equals("Sinovac")){
-                assign_dates(apt, "Sinovac");
-            }else{
+                assign_aptdetails(apt, "Pfizer");
+            } else if (vaxNameComboBox.getSelectedItem().equals("Aztrazeneca")) {
+                assign_aptdetails(apt, "Aztrazeneca");
+            } else if (vaxNameComboBox.getSelectedItem().equals("Sinovac")) {
+                assign_aptdetails(apt, "Sinovac");
+            } else {
                 JOptionPane.showMessageDialog(null, "Something went wrong, please try again.");
+            }
+            if (apt.validate_ic_passport_no("Appointment.txt", ic_passport_no, 0)) {
+                JOptionPane.showMessageDialog(null, "Duplicate record detected! Please try again.");
+            } else {
+                apt.register_vax_apt();
+                JOptionPane.showMessageDialog(null, "Registration Successful.");
             }
         } else {
             JOptionPane.showMessageDialog(null, "IC/Passport Number not found!\nPlease register first.");
         }
+
+
     }//GEN-LAST:event_registerAptBtnActionPerformed
 
-    public void assign_dates(Appointment apt, String vax_name) {
+    public void assign_aptdetails(Appointment apt, String vax_name) {
+        apt.setVaccine_name(vaxNameComboBox.getSelectedItem().toString());
+        apt.setAppointment_id(apt.generateID());
+        apt.setCentre_name(apt.retrieve_centre_name(apt.validate_vax_quantity(vax_name)));
+        apt.setCentre_address(apt.retrieve_centre_address(apt.validate_vax_quantity(vax_name)));
         apt.setFirst_dose_date(apt.setfdd());
         apt.setSecond_dose_date(apt.setsdd(apt.retrieve_time_delta(vax_name, "Second dose")));
         apt.setBooster_dose_date(apt.setbdd(apt.retrieve_time_delta(vax_name, "Booster dose")));
+
+        aptIDTxt.setText(Integer.toString(apt.getAppointment_id()));
+        centreNameTxt.setText(apt.getCentre_name());
+        centreAddressTxt.setText(apt.getCentre_address());
         fddTxt.setText(apt.getFirst_dose_date());
         sddTxt.setText(apt.getSecond_dose_date());
         bddTxt.setText(apt.getBooster_dose_date());
