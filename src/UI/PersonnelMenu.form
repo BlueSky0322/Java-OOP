@@ -31,9 +31,10 @@
                           <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                               <Component id="registerVaxAptBtn" alignment="0" max="32767" attributes="0"/>
                               <Component id="viewVaxAptBtn" min="-2" pref="352" max="-2" attributes="0"/>
-                              <Component id="registerVaxAptBtn1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="viewVaxSupplyBtn" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="viewDetailsBtn" alignment="1" min="-2" pref="352" max="-2" attributes="0"/>
+                          <Component id="registerPersonnelBtn" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -55,15 +56,17 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="32" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <Component id="registerPersonnelBtn" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="viewDetailsBtn" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="registerVaxAptBtn" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="viewVaxAptBtn" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="registerVaxAptBtn1" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <Component id="viewVaxSupplyBtn" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Component id="backToLoginBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
@@ -111,12 +114,20 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backToLoginBtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="registerVaxAptBtn1">
+    <Component class="javax.swing.JButton" name="viewVaxSupplyBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="View / Edit Vaccine Supply"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerVaxAptBtn1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewVaxSupplyBtn"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="registerPersonnelBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Register New Personnel"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerPersonnelBtnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

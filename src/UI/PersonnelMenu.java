@@ -35,7 +35,8 @@ public class PersonnelMenu extends javax.swing.JFrame {
         viewDetailsBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         backToLoginBtn = new javax.swing.JButton();
-        registerVaxAptBtn1 = new javax.swing.JButton();
+        viewVaxSupplyBtn = new javax.swing.JButton();
+        registerPersonnelBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,10 +71,17 @@ public class PersonnelMenu extends javax.swing.JFrame {
             }
         });
 
-        registerVaxAptBtn1.setText("View / Edit Vaccine Supply");
-        registerVaxAptBtn1.addActionListener(new java.awt.event.ActionListener() {
+        viewVaxSupplyBtn.setText("View / Edit Vaccine Supply");
+        viewVaxSupplyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerVaxAptBtn1ActionPerformed(evt);
+                viewVaxSupplyBtn(evt);
+            }
+        });
+
+        registerPersonnelBtn.setText("Register New Personnel");
+        registerPersonnelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerPersonnelBtnActionPerformed(evt);
             }
         });
 
@@ -89,8 +97,9 @@ public class PersonnelMenu extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(registerVaxAptBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(viewVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(registerVaxAptBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(viewDetailsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(viewVaxSupplyBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(viewDetailsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(registerPersonnelBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(157, 157, 157)
                         .addComponent(backToLoginBtn)))
@@ -105,15 +114,17 @@ public class PersonnelMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(registerPersonnelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(registerVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerVaxAptBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(viewVaxSupplyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addComponent(backToLoginBtn)
                 .addGap(26, 26, 26))
         );
@@ -141,9 +152,14 @@ public class PersonnelMenu extends javax.swing.JFrame {
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_backToLoginBtnActionPerformed
 
-    private void registerVaxAptBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerVaxAptBtn1ActionPerformed
+    private void viewVaxSupplyBtn(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewVaxSupplyBtn
         // TODO add your handling code here:
-    }//GEN-LAST:event_registerVaxAptBtn1ActionPerformed
+    }//GEN-LAST:event_viewVaxSupplyBtn
+
+    private void registerPersonnelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerPersonnelBtnActionPerformed
+        this.setVisible(false);
+        new RegisterPersonnelPage().setVisible(true);
+    }//GEN-LAST:event_registerPersonnelBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,9 +200,10 @@ public class PersonnelMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backToLoginBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton registerPersonnelBtn;
     private javax.swing.JButton registerVaxAptBtn;
-    private javax.swing.JButton registerVaxAptBtn1;
     private javax.swing.JButton viewDetailsBtn;
     private javax.swing.JButton viewVaxAptBtn;
+    private javax.swing.JButton viewVaxSupplyBtn;
     // End of variables declaration//GEN-END:variables
 }
