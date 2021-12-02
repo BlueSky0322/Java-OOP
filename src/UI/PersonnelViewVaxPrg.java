@@ -325,7 +325,7 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
             errorMessages += person.validate_address();
 
             if (errorMessages.isEmpty()) {
-                person.modify_details(icPassportNoTxt.getText(), "modify");
+                person.modify_person_details(icPassportNoTxt.getText(), "modify");
                 JOptionPane.showMessageDialog(null, "Record updated.");
             } else {
                 errorMessageLabel.setText(errorMessages);
@@ -335,7 +335,7 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
 
     private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
         Person person = new Person();
-        listIterator = person.modify_details(icPassportNoTxt.getText(), "remove").listIterator();
+        listIterator = person.modify_person_details(icPassportNoTxt.getText(), "remove").listIterator();
         clearFields();
         JOptionPane.showMessageDialog(null, "Record removed.");
     }//GEN-LAST:event_removeBtnActionPerformed

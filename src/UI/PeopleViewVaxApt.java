@@ -242,7 +242,7 @@ public class PeopleViewVaxApt extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         String id = icPassportNoTxt.getText();
-        String[] ary = DataAccess.get_data_by_id("Appointment.txt", id, 9, 0);
+        String[] ary = DataAccess.get_data_by_var("Appointment.txt", id, 9, 0);
 
         if (!icPassportNoTxt.getText().equals("")) {
             if (ary[0] == null) {
@@ -268,7 +268,7 @@ public class PeopleViewVaxApt extends javax.swing.JFrame {
 
     private void cancelAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAptBtnActionPerformed
         Appointment apt = new Appointment();
-        listIterator = apt.modify_details(icPassportNoTxt.getText(), "remove").listIterator();
+        listIterator = apt.modify_apt_details(icPassportNoTxt.getText(), "remove").listIterator();
         clearFields();
         JOptionPane.showMessageDialog(null, "Changes have been made.");
     }//GEN-LAST:event_cancelAptBtnActionPerformed

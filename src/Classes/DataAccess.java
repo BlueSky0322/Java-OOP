@@ -44,7 +44,7 @@ public class DataAccess {
         return false;
     }
     
-    public static String[] get_data_by_id(String filename, String id, int ary_size, int column) {
+    public static String[] get_data_by_var(String filename, String var, int ary_size, int column) {
         String[] arrayList = new String[ary_size];
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -54,7 +54,7 @@ public class DataAccess {
                 if (tempAry.length < 1) {
                     break;
                 } 
-                if (id.equals(tempAry[column])){
+                if (var.equals(tempAry[column])){
                     arrayList = tempAry; 
                 }
             }

@@ -16,8 +16,6 @@ import Interface.VaxDetails;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -109,17 +107,17 @@ public class Appointment implements VaxDetails, GenerateID {
 
     @Override
     public String setfdd() {
-        return LocalDate.now().plusDays(FFD_AFTER).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"));
+        return LocalDate.now().plusDays(SET_FFD_AFTER).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"));
     }
 
     @Override
     public String setsdd(int vax_time_delta) {
-        return LocalDate.now().plusDays(FFD_AFTER).plusWeeks(vax_time_delta).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"));
+        return LocalDate.now().plusDays(SET_FFD_AFTER).plusWeeks(vax_time_delta).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"));
     }
 
     @Override
     public String setbdd(int booster_time_delta) {
-        return LocalDate.now().plusDays(FFD_AFTER).plusWeeks(booster_time_delta).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"));
+        return LocalDate.now().plusDays(SET_FFD_AFTER).plusWeeks(booster_time_delta).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"));
     }
 
     @Override
@@ -203,7 +201,7 @@ public class Appointment implements VaxDetails, GenerateID {
         }
     }
 
-    public ArrayList<String[]> modify_details(String search, String mode) {
+    public ArrayList<String[]> modify_apt_details(String search, String mode) {
         ArrayList<String[]> arrayList = DataAccess.get_data("Appointment.txt");
         
         if (mode.equals("modify")) {

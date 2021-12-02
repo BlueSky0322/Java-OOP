@@ -290,7 +290,7 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         String id = searchTxt.getText();
-        String[] ary = DataAccess.get_data_by_id("Personnel.txt", id, 6, 0);
+        String[] ary = DataAccess.get_data_by_var("Personnel.txt", id, 6, 0);
 
         if (!searchTxt.getText().equals("")) {
             if (ary[0] == null) {

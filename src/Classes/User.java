@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 package Classes;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
 /**
  *
  * @author Ryan Ng, Sareindra
@@ -35,12 +30,11 @@ public class User extends Person {
     }
 
     public String verify_admin_login() {
-        String[] user_data = DataAccess.get_data_by_id("Personnel.txt", this.username, 6, 0);
+        String[] user_data = DataAccess.get_data_by_var("Personnel.txt", this.username, 6, 0);
         if(user_data[0].equals(this.username) && user_data[4].equals(this.password)){
             return user_data[5];
         }
         return "";
-        
     }
 
     public boolean verify_people_login() {

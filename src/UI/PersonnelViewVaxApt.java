@@ -336,7 +336,7 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         String id = searchTxt.getText();
-        String[] ary = DataAccess.get_data_by_id("Appointment.txt", id, 9, 0);
+        String[] ary = DataAccess.get_data_by_var("Appointment.txt", id, 9, 0);
 
         if (!searchTxt.getText().equals("")) {
             if (ary[0] == null) {
@@ -360,7 +360,7 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
 
     private void cancelAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAptBtnActionPerformed
         Appointment apt = new Appointment();
-        listIterator = apt.modify_details(icPassportNoTxt.getText(), "remove").listIterator();
+        listIterator = apt.modify_apt_details(icPassportNoTxt.getText(), "remove").listIterator();
         clearFields();
         JOptionPane.showMessageDialog(null, "Appointment cancelled.");
     }//GEN-LAST:event_cancelAptBtnActionPerformed
@@ -400,7 +400,7 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
                 } else if (vaxStatusComboBox.getSelectedItem().equals("BOOSTER_DOSE_COMPLETE")) {
                     apt.setVax_status(VaxStatus.BOOSTER_DOSE_COMPLETE.name());
                 }
-                apt.modify_details(search, "modify");
+                apt.modify_apt_details(search, "modify");
                 JOptionPane.showMessageDialog(null, "Appointment updated.");
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid Appointment ID!");

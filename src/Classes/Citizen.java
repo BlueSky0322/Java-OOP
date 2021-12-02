@@ -8,6 +8,7 @@ package Classes;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+
 /**
  *
  * @author Ryan Ng, Sareindra
@@ -37,7 +38,7 @@ public class Citizen extends People {
     }
 
     public String validate_icno() {
-        if (this.ic_no.isEmpty() || !DataAccess.isNumeric(this.ic_no)) {
+        if (!DataAccess.isNumeric(this.ic_no)) {
             return "Invalid IC No.";
         }
         return "";

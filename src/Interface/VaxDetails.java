@@ -10,7 +10,7 @@ package Interface;
  * @author Ryan Ng, Sareindra
  */
 public interface VaxDetails {
-    static final int FFD_AFTER = 3;
+    static final int SET_FFD_AFTER = 3;
     static final int MIN_QUANTITY = 100;
     String setfdd();
     String setsdd(int a);

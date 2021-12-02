@@ -289,7 +289,7 @@ public class PeopleViewVaxPrg extends javax.swing.JFrame {
             errorMessages += person.validate_address();
             
             if (errorMessages.isEmpty()) {
-                person.modify_details(search, "modify");
+                person.modify_person_details(search, "modify");
             } else {
                 errorMessageLabel.setText(errorMessages);
             }

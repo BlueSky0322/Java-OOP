@@ -242,7 +242,7 @@ public class VaccineSupply extends javax.swing.JFrame {
 
     boolean update(String mode) {
         VaccineStorageCentre vsc = new VaccineStorageCentre();
-        String[] vscAry = DataAccess.get_data_by_id("VaccineStorageCentre.txt", this.centre_id, 4, 0);
+        String[] vscAry = DataAccess.get_data_by_var("VaccineStorageCentre.txt", this.centre_id, 4, 0);
         if (azTxt.getText().equals("") || pfTxt.getText().equals("") || svTxt.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Some fields are empty!");
         } else {
@@ -306,8 +306,8 @@ public class VaccineSupply extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         this.centre_id = centreIDComboBox.getSelectedItem().toString();
-        String[] vscAry = DataAccess.get_data_by_id("VaccineStorageCentre.txt", this.centre_id, 4, 0);
-        String[] centreAry = DataAccess.get_data_by_id("Centre.txt", this.centre_id, 3, 0);
+        String[] vscAry = DataAccess.get_data_by_var("VaccineStorageCentre.txt", this.centre_id, 4, 0);
+        String[] centreAry = DataAccess.get_data_by_var("Centre.txt", this.centre_id, 3, 0);
 
         if (!centreIDComboBox.getSelectedItem().equals("")) {
             if (vscAry[0] == null) {

@@ -27,20 +27,10 @@ public class Noncitizen extends People {
         this.address = person.address;
     }
 
-    /**
-     * Get the value of passport_no
-     *
-     * @return the value of passport_no
-     */
     public String getPassport_no() {
         return passport_no;
     }
 
-    /**
-     * Set the value of passport_no
-     *
-     * @param passport_no new value of passport_no
-     */
     public void setPassport_no(String passport_no) {
         this.passport_no = passport_no;
     }
