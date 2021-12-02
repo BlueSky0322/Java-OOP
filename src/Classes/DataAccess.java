@@ -34,6 +34,16 @@ public class DataAccess {
         return arrayList;
     }
     
+    public static boolean validate_data(String filename, String data, int column) {
+        ArrayList<String[]> arrayList = DataAccess.get_data(filename);
+        for (String[] element : arrayList) {
+            if (data.equals(element[column])) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public static String[] get_vac_apt_by_id(String id) {
         String[] arrayList = new String[9];
         try {
@@ -52,5 +62,14 @@ public class DataAccess {
             e.printStackTrace();
         }
         return arrayList;
+    }
+    
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

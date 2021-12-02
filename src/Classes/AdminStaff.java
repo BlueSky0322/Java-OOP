@@ -5,13 +5,23 @@
  */
 package Classes;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+
 /**
  *
  * @author SAREINDRA
  */
-public class AdminStaff extends Personnel{
+public class AdminStaff extends Personnel {
+    VaccineStorageCentre vsc = new VaccineStorageCentre();
+
+    public void add_vax_supply(int vax_quantity, int amount) {
+        vsc.add_amount(vax_quantity, amount);
+    }
+
+    public void remove_vax_supply(int vax_quantity, int amount) {
+        vsc.add_amount(vax_quantity, amount);
+    }
     
+    public void modify_vax_supply() {
+        
+    }
 }

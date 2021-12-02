@@ -16,10 +16,7 @@ public class Citizen extends People {
 
     private String ic_no;
 
-    public Citizen() {
-    }
-
-    ;
+    public Citizen() {};
     
     public Citizen(Person person, String ic_no) {
         this.ic_no = ic_no;
@@ -40,7 +37,7 @@ public class Citizen extends People {
     }
 
     public String validate_icno() {
-        if (this.ic_no.isEmpty() || !isNumeric(this.ic_no)) {
+        if (this.ic_no.isEmpty() || !DataAccess.isNumeric(this.ic_no)) {
             return "Invalid IC No.";
         }
         return "";

@@ -90,23 +90,14 @@ public class Person {
     }
 
     public String validate_name() {
-        if (this.name.isEmpty()) {
+        if (this.name.isEmpty() || DataAccess.isNumeric(this.name)) {
             return "Invalid Name, ";
         }
         return "";
     }
 
-    public static boolean isNumeric(String str) {
-        try {
-            Double.parseDouble(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
     public String validate_age(String age) {
-        if (age.isEmpty() || !isNumeric(age)) {
+        if (age.isEmpty() || !DataAccess.isNumeric(age)) {
             return "Invalid Age, ";
         }
         return "";
@@ -117,25 +108,6 @@ public class Person {
             return "";
         }
         return "Invalid gender, " + gender;
-    }
-
-    public boolean check_duplicate() {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("People.txt"));
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] ary = line.split(":");
-                if (ary.length < 1) {
-                    break;
-                }
-                if (this.tel_no.equals(ary[3])) {
-                    return true;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     public boolean search_id(String search) {
@@ -158,18 +130,7 @@ public class Person {
     }
 
     public String validate_tel_no() {
-        if (this.tel_no.isEmpty() || !isNumeric(this.tel_no)) {
-            return "Invalid Telephone No., ";
-        }
-
-        if (this.check_duplicate()) {
-            return "Duplicate record detected. Please try again.";
-        }
-        return "";
-    }
-
-    public String validate_tel_no_format() {
-        if (this.tel_no.isEmpty() || !isNumeric(this.tel_no)) {
+        if (this.tel_no.isEmpty() || !DataAccess.isNumeric(this.tel_no)) {
             return "Invalid Telephone No., ";
         }
         return "";
