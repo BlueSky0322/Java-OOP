@@ -5,15 +5,21 @@
  */
 package Classes;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 /**
  *
  * @author Ryan Ng
  */
-public class VaccineStorageCentre{
+public class VaccineStorageCentre {
+
     private int pf_quantity;
     private int az_quantity;
     private int sv_quantity;
-    private int amount;
 
     public int getPf_quantity() {
         return pf_quantity;
@@ -38,12 +44,37 @@ public class VaccineStorageCentre{
     public void setSv_quantity(int sv_quantity) {
         this.sv_quantity = sv_quantity;
     }
-    
-    public int add_amount(int vax_quantity, int amount){
+
+    public int add_amount(int vax_quantity, int amount) {
         return vax_quantity += amount;
     }
-    
-    public int remove_amount(int vax_quantity, int amount){
+
+    public int remove_amount(int vax_quantity, int amount) {
         return vax_quantity -= amount;
+    }
+
+    public void update_vax_quantity(String centre_id, int pf_quantity, int az_quantity, int sv_quantity) {
+        ArrayList<String[]> arrayList = DataAccess.get_data("VaccineStorageCentre.txt");
+        for (String[] element : arrayList) {
+            if (centre_id.equals(element[0])) {
+                element[1] = Integer.toString(pf_quantity);
+                element[2] = Integer.toString(az_quantity);
+                element[3] = Integer.toString(sv_quantity);
+            }
+        }
+
+        BufferedWriter bw;
+        try {
+            bw = new BufferedWriter(new FileWriter("VaccineStorageCentre.txt"));
+            try (PrintWriter pw = new PrintWriter(bw)) {
+                for (String[] element : arrayList) {
+                    pw.println(element[0] + ":" + element[1] + ":" + element[2] + ":" + element[3]);
+                }
+                pw.flush();
+            }
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

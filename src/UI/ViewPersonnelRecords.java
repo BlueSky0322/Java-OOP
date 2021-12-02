@@ -5,10 +5,8 @@
  */
 package UI;
 
-import Classes.Appointment;
-import Classes.Centre;
+import Classes.AdminStaff;
 import Classes.DataAccess;
-import Enum.VaxStatus;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import javax.swing.JOptionPane;
@@ -43,55 +41,35 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
     private void initComponents() {
 
         titleCard = new javax.swing.JLabel();
-        bddTxt = new javax.swing.JTextField();
-        icPassportNoLabel = new javax.swing.JLabel();
-        vaccineNameLabel = new javax.swing.JLabel();
-        centreNameLabel = new javax.swing.JLabel();
-        aptIDLabel = new javax.swing.JLabel();
-        fddLabel = new javax.swing.JLabel();
-        sddLabel = new javax.swing.JLabel();
-        bddLabel = new javax.swing.JLabel();
-        icPassportNoTxt = new javax.swing.JTextField();
-        aptIDTxt = new javax.swing.JTextField();
-        fddTxt = new javax.swing.JTextField();
-        sddTxt = new javax.swing.JTextField();
         searchBtn = new javax.swing.JButton();
         backToMenuBtn = new javax.swing.JButton();
-        centreAddressLabel = new javax.swing.JLabel();
-        centreAddressTxt = new javax.swing.JTextField();
         titleCardLabel2 = new javax.swing.JLabel();
-        cancelAptBtn = new javax.swing.JButton();
-        vaxStatusLabel = new javax.swing.JLabel();
-        modifyAptBtn = new javax.swing.JButton();
+        cancelRecordBtn = new javax.swing.JButton();
+        modifyRecordBtn = new javax.swing.JButton();
         nextBtn = new javax.swing.JButton();
         lastBtn = new javax.swing.JButton();
         previousBtn = new javax.swing.JButton();
         firstBtn = new javax.swing.JButton();
-        vaxNameComboBox = new javax.swing.JComboBox<>();
-        vaxStatusComboBox = new javax.swing.JComboBox<>();
-        centreNameComboBox = new javax.swing.JComboBox<>();
         titleCardLabel = new javax.swing.JLabel();
         searchTxt = new javax.swing.JTextField();
+        nameLabel = new javax.swing.JLabel();
+        nameTxt = new javax.swing.JTextField();
+        ageLabel = new javax.swing.JLabel();
+        genderLabel = new javax.swing.JLabel();
+        citizenshipLabel = new javax.swing.JLabel();
+        empIDLabel = new javax.swing.JLabel();
+        icPassportNoLabel = new javax.swing.JLabel();
+        asRBtn = new javax.swing.JRadioButton();
+        hpRBtn = new javax.swing.JRadioButton();
+        icPassportNoTxt = new javax.swing.JTextField();
+        ageTxt = new javax.swing.JTextField();
+        genderTxt = new javax.swing.JTextField();
+        empIDTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         titleCard.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        titleCard.setText("VIEW ALL VACCINATION APPOINTMENTS");
-
-        icPassportNoLabel.setText("IC/Passport Number:");
-        icPassportNoLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-
-        vaccineNameLabel.setText("Vaccine Name:");
-
-        centreNameLabel.setText("Centre Name:");
-
-        aptIDLabel.setText("Appointment ID:");
-
-        fddLabel.setText("First Dose Date:");
-
-        sddLabel.setText("Second Dose Date:");
-
-        bddLabel.setText("Booster Dose Date:");
+        titleCard.setText("VIEW ALL PERSONNEL RECORDS");
 
         searchBtn.setText("Search/View");
         searchBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -107,24 +85,20 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
             }
         });
 
-        centreAddressLabel.setText("Centre Address:");
-
         titleCardLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        titleCardLabel2.setText("Vaccination Appointment");
+        titleCardLabel2.setText("Personnel Records");
 
-        cancelAptBtn.setText("Cancel Appointment");
-        cancelAptBtn.addActionListener(new java.awt.event.ActionListener() {
+        cancelRecordBtn.setText("Remove Record");
+        cancelRecordBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelAptBtnActionPerformed(evt);
+                cancelREcBtnActionPerformed(evt);
             }
         });
 
-        vaxStatusLabel.setText("Vaccination Status:");
-
-        modifyAptBtn.setText("Modify Appointment");
-        modifyAptBtn.addActionListener(new java.awt.event.ActionListener() {
+        modifyRecordBtn.setText("Modify Record");
+        modifyRecordBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modifyAptBtnActionPerformed(evt);
+                modifyRecordBtnActionPerformed(evt);
             }
         });
 
@@ -156,101 +130,92 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
             }
         });
 
-        vaxNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pfizer", "Aztrazeneca", "Sinovac" }));
-        vaxNameComboBox.addActionListener(new java.awt.event.ActionListener() {
+        titleCardLabel.setText("Enter IC Number:");
+
+        nameLabel.setText("Name:");
+
+        ageLabel.setText("Age:");
+
+        genderLabel.setText("Gender (M/F):");
+
+        citizenshipLabel.setText("Job Position:");
+
+        empIDLabel.setText("Employee ID:");
+
+        icPassportNoLabel.setText("IC Number:");
+
+        asRBtn.setText("Admin Staff");
+        asRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vaxNameComboBoxActionPerformed(evt);
+                asRBtnActionPerformed(evt);
             }
         });
 
-        vaxStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOT_VACCINATED", "FIRST_DOSE_COMPLETE", "SECOND_DOSE_COMPLETE", "BOOSTER_DOSE_COMPLETE" }));
-        vaxStatusComboBox.addActionListener(new java.awt.event.ActionListener() {
+        hpRBtn.setText("Healthcare Personnel");
+        hpRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vaxStatusComboBoxActionPerformed(evt);
+                hpRBtnActionPerformed(evt);
             }
         });
-
-        centreNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tun Razak Medical Centre", "Hussein Onn Medical Centre", "Abdul Rahman Medical Centre" }));
-        centreNameComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                centreNameComboBoxActionPerformed(evt);
-            }
-        });
-
-        titleCardLabel.setText("Enter IC/ Passport No.:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(titleCardLabel2))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(104, 104, 104)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(vaccineNameLabel)
-                                .addComponent(centreNameLabel)
-                                .addComponent(aptIDLabel)
-                                .addComponent(icPassportNoLabel))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(aptIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(vaxNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(centreNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(112, 112, 112)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(vaxStatusLabel)
-                                .addComponent(centreAddressLabel)
-                                .addComponent(fddLabel)
-                                .addComponent(sddLabel)
-                                .addComponent(bddLabel))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(centreAddressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(fddTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(sddTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(bddTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(vaxStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(27, 27, 27))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(titleCard)
-                        .addGap(29, 29, 29))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(previousBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                            .addComponent(firstBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(previousBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(firstBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(cancelAptBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(modifyAptBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lastBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(backToMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(109, 109, 109)))
-                        .addGap(96, 96, 96))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(cancelRecordBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(modifyRecordBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(backToMenuBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lastBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(nextBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(98, 98, 98))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(titleCardLabel)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(72, 72, 72))))
+                                .addGap(13, 13, 13)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(titleCard)
+                                    .addComponent(titleCardLabel)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(titleCardLabel2)
+                                            .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(28, 28, 28)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(genderLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(ageLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addComponent(citizenshipLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(empIDLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(icPassportNoLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(nameTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(asRBtn)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(hpRBtn))
+                                    .addComponent(empIDTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(icPassportNoTxt))))
+                        .addGap(65, 65, 65))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,59 +228,54 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(titleCardLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(icPassportNoLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aptIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aptIDLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vaccineNameLabel)
-                    .addComponent(vaxNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(centreNameLabel)
-                    .addComponent(centreNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(centreAddressLabel)
-                    .addComponent(centreAddressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fddTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fddLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sddTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sddLabel))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bddLabel)
-                    .addComponent(bddTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vaxStatusLabel)
-                    .addComponent(vaxStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 32, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cancelAptBtn)
-                            .addComponent(firstBtn))
+                            .addComponent(nameLabel)
+                            .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(modifyAptBtn)
-                            .addComponent(previousBtn)
-                            .addComponent(nextBtn)))
-                    .addComponent(lastBtn))
-                .addGap(18, 18, 18)
-                .addComponent(backToMenuBtn)
-                .addGap(17, 17, 17))
+                            .addComponent(ageLabel)
+                            .addComponent(ageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(genderLabel)
+                            .addComponent(genderTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(citizenshipLabel)
+                            .addComponent(asRBtn)
+                            .addComponent(hpRBtn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(empIDLabel)
+                            .addComponent(empIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(nextBtn))
+                            .addComponent(lastBtn)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cancelRecordBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(modifyRecordBtn))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(firstBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(previousBtn)))
+                        .addGap(18, 18, 18)
+                        .addComponent(backToMenuBtn)
+                        .addGap(37, 37, 37))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(icPassportNoLabel))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -328,7 +288,7 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         String id = searchTxt.getText();
-        String[] ary = DataAccess.get_vac_apt_by_id(id);
+        String[] ary = DataAccess.get_data_by_id("Personnel.txt", id, 6, 0);
 
         if (!searchTxt.getText().equals("")) {
             if (ary[0] == null) {
@@ -336,86 +296,98 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
                 searchTxt.setText("");
             } else {
                 icPassportNoTxt.setText(ary[0]);
-                vaxNameComboBox.setSelectedItem(ary[1]);
-                aptIDTxt.setText(ary[2]);
-                centreNameComboBox.setSelectedItem(ary[3]);
-                centreAddressTxt.setText(ary[4]);
-                fddTxt.setText(ary[5]);
-                sddTxt.setText(ary[6]);
-                bddTxt.setText(ary[7]);
-                vaxStatusComboBox.setSelectedItem(ary[8]);
+                nameTxt.setText(ary[1]);
+                ageTxt.setText(ary[2]);
+                genderTxt.setText(ary[3]);
+                if (ary[5].equals("Admin Staff")) {
+                    asRBtn.setSelected(true);
+                    hpRBtn.setSelected(false);
+                } else {
+                    hpRBtn.setSelected(true);
+                    asRBtn.setSelected(false);
+                }
+                empIDTxt.setText(ary[4]);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Some fields are empty");
         }
     }//GEN-LAST:event_searchBtnActionPerformed
 
-    private void cancelAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAptBtnActionPerformed
-        Appointment apt = new Appointment();
-        listIterator = apt.modify_details(icPassportNoTxt.getText(), "remove").listIterator();
+    private void cancelREcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelREcBtnActionPerformed
+        AdminStaff as = new AdminStaff();
+        listIterator = as.modify_personnel_details(icPassportNoTxt.getText(), "remove").listIterator();
         clearFields();
-        JOptionPane.showMessageDialog(null, "Appointment cancelled.");
-    }//GEN-LAST:event_cancelAptBtnActionPerformed
+        JOptionPane.showMessageDialog(null, "Record removed.");
+    }//GEN-LAST:event_cancelREcBtnActionPerformed
 
-    private void modifyAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyAptBtnActionPerformed
-        if (icPassportNoTxt.getText().equals("") || aptIDTxt.getText().equals("")
-                || fddTxt.getText().equals("") || sddTxt.getText().equals("") || bddTxt.getText().equals("")) {
+    private void modifyRecordBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyRecordBtnActionPerformed
+        if (icPassportNoTxt.getText().equals("") || nameTxt.getText().equals("")
+                || ageTxt.getText().equals("") || genderTxt.getText().equals("") || empIDTxt.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Some fields are Empty!");
         } else {
-            if (DataAccess.isNumeric(aptIDTxt.getText())) {
+            if (DataAccess.isNumeric(icPassportNoTxt.getText())) {
                 String search = searchTxt.getText();
+                AdminStaff as = new AdminStaff();
 
-                Appointment apt = new Appointment();
-                Centre ctr = new Centre();
+                String errorMessages = "";
 
-                apt.setIc_passport_no(icPassportNoTxt.getText());
-                apt.setVaccine_name(vaxNameComboBox.getSelectedItem().toString());
-                apt.setAppointment_id(Integer.parseInt(aptIDTxt.getText()));
-                apt.setFirst_dose_date(fddTxt.getText());
-                apt.setSecond_dose_date(sddTxt.getText());
-                apt.setBooster_dose_date(bddTxt.getText());
-
-                if (centreNameComboBox.getSelectedItem().equals("Tun Razak Medical Centre")) {
-                    assign_centre_id(apt, ctr, "1");
-                } else if (centreNameComboBox.getSelectedItem().equals("Hussein Onn Medical Centre")) {
-                    assign_centre_id(apt, ctr, "2");
-                } else if (centreNameComboBox.getSelectedItem().equals("Abdul Rahman Medical Centre")) {
-                    assign_centre_id(apt, ctr, "3");
+                String name = nameTxt.getText();
+                errorMessages += as.validate_age(ageTxt.getText());
+                errorMessages += as.validate_gender(genderTxt.getText());
+                int age = 0;
+                char gender = 0;
+                if (errorMessages.isEmpty()) {
+                    age = Integer.parseInt(ageTxt.getText());
+                    gender = genderTxt.getText().charAt(0);
                 }
 
-                if (vaxStatusComboBox.getSelectedItem().equals("NOT_VACCINATED")) {
-                    apt.setVax_status(VaxStatus.NOT_VACCINATED.name());
-                } else if (vaxStatusComboBox.getSelectedItem().equals("FIRST_DOSE_COMPLETE")) {
-                    apt.setVax_status(VaxStatus.FIRST_DOSE_COMPLETE.name());
-                } else if (vaxStatusComboBox.getSelectedItem().equals("SECOND_DOSE_COMPLETE")) {
-                    apt.setVax_status(VaxStatus.SECOND_DOSE_COMPLETE.name());
-                } else if (vaxStatusComboBox.getSelectedItem().equals("BOOSTER_DOSE_COMPLETE")) {
-                    apt.setVax_status(VaxStatus.BOOSTER_DOSE_COMPLETE.name());
+                as.setIc_no(icPassportNoTxt.getText());
+                as.setName(name);
+                errorMessages += as.validate_name();
+                as.setAge(age);
+                as.setGender(gender);
+                if (asRBtn.isSelected()) {
+                    as.setJob_position(asRBtn.getText());
+                } else {
+                    as.setJob_position(hpRBtn.getText());
                 }
-                apt.modify_details(search, "modify");
-                JOptionPane.showMessageDialog(null, "Appointment updated.");
+                as.setEmp_id(empIDTxt.getText());
+
+                if (DataAccess.validate_data("Personnel.txt", empIDTxt.getText(), 4)) {
+                    JOptionPane.showMessageDialog(null, "Duplicate record detected! Please try again.");
+                } else {
+                    if (errorMessages.isEmpty()) {
+                        as.modify_personnel_details(search, "modify");
+                        JOptionPane.showMessageDialog(null, "Personnel record updated.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, errorMessages);
+                    }
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Invalid Appointment ID!");
+                JOptionPane.showMessageDialog(null, "Invalid IC Number!");
             }
         }
-    }//GEN-LAST:event_modifyAptBtnActionPerformed
+    }//GEN-LAST:event_modifyRecordBtnActionPerformed
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
-        if (icPassportNoTxt.getText().equals("") || aptIDTxt.getText().equals("")
-                || fddTxt.getText().equals("") || sddTxt.getText().equals("") || bddTxt.getText().equals("")) {
+        if (icPassportNoTxt.getText().equals("") || nameTxt.getText().equals("")
+                || ageTxt.getText().equals("") || genderTxt.getText().equals("") || empIDTxt.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Some fields are Empty!");
         } else {
             if (listIterator.hasNext()) {
                 String[] ary = listIterator.next();
                 icPassportNoTxt.setText(ary[0]);
-                vaxNameComboBox.setSelectedItem(ary[1]);
-                aptIDTxt.setText(ary[2]);
-                centreNameComboBox.setSelectedItem(ary[3]);
-                centreAddressTxt.setText(ary[4]);
-                fddTxt.setText(ary[5]);
-                sddTxt.setText(ary[6]);
-                bddTxt.setText(ary[7]);
-                vaxStatusComboBox.setSelectedItem(ary[8]);
+                nameTxt.setText(ary[1]);
+                ageTxt.setText(ary[2]);
+                genderTxt.setText(ary[3]);
+                if (ary[5].equals("Admin Staff")) {
+                    asRBtn.setSelected(true);
+                    hpRBtn.setSelected(false);
+                } else {
+                    hpRBtn.setSelected(true);
+                    asRBtn.setSelected(false);
+                }
+                empIDTxt.setText(ary[4]);
             } else {
                 JOptionPane.showMessageDialog(null, "You reached the end of the records.");
             }
@@ -428,35 +400,41 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
         if (listIterator.hasPrevious()) {
             String[] ary = listIterator.previous();
             icPassportNoTxt.setText(ary[0]);
-            vaxNameComboBox.setSelectedItem(ary[1]);
-            aptIDTxt.setText(ary[2]);
-            centreNameComboBox.setSelectedItem(ary[3]);
-            centreAddressTxt.setText(ary[4]);
-            fddTxt.setText(ary[5]);
-            sddTxt.setText(ary[6]);
-            bddTxt.setText(ary[7]);
-            vaxStatusComboBox.setSelectedItem(ary[8]);
+            nameTxt.setText(ary[1]);
+            ageTxt.setText(ary[2]);
+            genderTxt.setText(ary[3]);
+            if (ary[5].equals("Admin Staff")) {
+                asRBtn.setSelected(true);
+                hpRBtn.setSelected(false);
+            } else {
+                hpRBtn.setSelected(true);
+                asRBtn.setSelected(false);
+            }
+            empIDTxt.setText(ary[4]);
         } else {
             JOptionPane.showMessageDialog(null, "You reached the start of the records.");
         }
     }//GEN-LAST:event_lastBtnActionPerformed
 
     private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousBtnActionPerformed
-        if (icPassportNoTxt.getText().equals("") || aptIDTxt.getText().equals("")
-                || fddTxt.getText().equals("") || sddTxt.getText().equals("") || bddTxt.getText().equals("")) {
+        if (icPassportNoTxt.getText().equals("") || nameTxt.getText().equals("")
+                || ageTxt.getText().equals("") || genderTxt.getText().equals("") || empIDTxt.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Some fields are Empty!");
         } else {
             if (listIterator.hasPrevious()) {
                 String[] ary = listIterator.previous();
                 icPassportNoTxt.setText(ary[0]);
-                vaxNameComboBox.setSelectedItem(ary[1]);
-                aptIDTxt.setText(ary[2]);
-                centreNameComboBox.setSelectedItem(ary[3]);
-                centreAddressTxt.setText(ary[4]);
-                fddTxt.setText(ary[5]);
-                sddTxt.setText(ary[6]);
-                bddTxt.setText(ary[7]);
-                vaxStatusComboBox.setSelectedItem(ary[8]);
+                nameTxt.setText(ary[1]);
+                ageTxt.setText(ary[2]);
+                genderTxt.setText(ary[3]);
+                if (ary[5].equals("Admin Staff")) {
+                    asRBtn.setSelected(true);
+                    hpRBtn.setSelected(false);
+                } else {
+                    hpRBtn.setSelected(true);
+                    asRBtn.setSelected(false);
+                }
+                empIDTxt.setText(ary[4]);
             } else {
                 JOptionPane.showMessageDialog(null, "You reached the start of the records.");
             }
@@ -468,47 +446,42 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
         listIterator = arrayList.listIterator();
         String[] ary = listIterator.next();
         icPassportNoTxt.setText(ary[0]);
-        vaxNameComboBox.setSelectedItem(ary[1]);
-        aptIDTxt.setText(ary[2]);
-        centreNameComboBox.setSelectedItem(ary[3]);
-        centreAddressTxt.setText(ary[4]);
-        fddTxt.setText(ary[5]);
-        sddTxt.setText(ary[6]);
-        bddTxt.setText(ary[7]);
-        vaxStatusComboBox.setSelectedItem(ary[8]);
+        nameTxt.setText(ary[1]);
+        ageTxt.setText(ary[2]);
+        genderTxt.setText(ary[3]);
+        if (ary[5].equals("Admin Staff")) {
+            asRBtn.setSelected(true);
+            hpRBtn.setSelected(false);
+        } else {
+            hpRBtn.setSelected(true);
+            asRBtn.setSelected(false);
+        }
+        empIDTxt.setText(ary[4]);
     }//GEN-LAST:event_firstBtnActionPerformed
 
-    private void vaxNameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vaxNameComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vaxNameComboBoxActionPerformed
+    private void asRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asRBtnActionPerformed
+        if (asRBtn.isSelected()) {
+            hpRBtn.setSelected(false);
+            empIDTxt.setText("AS");
+        }
+    }//GEN-LAST:event_asRBtnActionPerformed
 
-    private void vaxStatusComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vaxStatusComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vaxStatusComboBoxActionPerformed
-
-    private void centreNameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_centreNameComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_centreNameComboBoxActionPerformed
+    private void hpRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hpRBtnActionPerformed
+        if (hpRBtn.isSelected()) {
+            asRBtn.setSelected(false);
+            empIDTxt.setText("HP");
+        }
+    }//GEN-LAST:event_hpRBtnActionPerformed
 
     void clearFields() {
         icPassportNoTxt.setText("");
-        vaxNameComboBox.setSelectedIndex(0);
-        aptIDTxt.setText("");
-        centreNameComboBox.setSelectedIndex(0);
-        centreAddressTxt.setText("");
-        fddTxt.setText("");
-        sddTxt.setText("");
-        bddTxt.setText("");
-        vaxStatusComboBox.setSelectedIndex(0);
+        nameTxt.setText("");
+        ageTxt.setText("");
+        genderTxt.setText("");
+        empIDTxt.setText("");
+        asRBtn.setSelected(false);
+        hpRBtn.setSelected(false);
     }
-
-    void assign_centre_id(Appointment apt, Centre ctr, String id) {
-        ctr.setCentre_id(id);
-        apt.setCentre_name(apt.retrieve_centre_details(ctr.getCentre_id(), 1));
-        apt.setCentre_address(apt.retrieve_centre_details(ctr.getCentre_id(), 2));
-        centreAddressTxt.setText(apt.retrieve_centre_details(ctr.getCentre_id(), 2));
-    }
-
     /**
      * @param args the command line arguments
      */
@@ -536,7 +509,7 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-      
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -547,35 +520,30 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel aptIDLabel;
-    private javax.swing.JTextField aptIDTxt;
+    private javax.swing.JLabel ageLabel;
+    private javax.swing.JTextField ageTxt;
+    private javax.swing.JRadioButton asRBtn;
     private javax.swing.JButton backToMenuBtn;
-    private javax.swing.JLabel bddLabel;
-    private javax.swing.JTextField bddTxt;
-    private javax.swing.JButton cancelAptBtn;
-    private javax.swing.JLabel centreAddressLabel;
-    private javax.swing.JTextField centreAddressTxt;
-    private javax.swing.JComboBox<String> centreNameComboBox;
-    private javax.swing.JLabel centreNameLabel;
-    private javax.swing.JLabel fddLabel;
-    private javax.swing.JTextField fddTxt;
+    private javax.swing.JButton cancelRecordBtn;
+    private javax.swing.JLabel citizenshipLabel;
+    private javax.swing.JLabel empIDLabel;
+    private javax.swing.JTextField empIDTxt;
     private javax.swing.JButton firstBtn;
+    private javax.swing.JLabel genderLabel;
+    private javax.swing.JTextField genderTxt;
+    private javax.swing.JRadioButton hpRBtn;
     private javax.swing.JLabel icPassportNoLabel;
     private javax.swing.JTextField icPassportNoTxt;
     private javax.swing.JButton lastBtn;
-    private javax.swing.JButton modifyAptBtn;
+    private javax.swing.JButton modifyRecordBtn;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JTextField nameTxt;
     private javax.swing.JButton nextBtn;
     private javax.swing.JButton previousBtn;
-    private javax.swing.JLabel sddLabel;
-    private javax.swing.JTextField sddTxt;
     private javax.swing.JButton searchBtn;
     private javax.swing.JTextField searchTxt;
     private javax.swing.JLabel titleCard;
     private javax.swing.JLabel titleCardLabel;
     private javax.swing.JLabel titleCardLabel2;
-    private javax.swing.JLabel vaccineNameLabel;
-    private javax.swing.JComboBox<String> vaxNameComboBox;
-    private javax.swing.JComboBox<String> vaxStatusComboBox;
-    private javax.swing.JLabel vaxStatusLabel;
     // End of variables declaration//GEN-END:variables
 }

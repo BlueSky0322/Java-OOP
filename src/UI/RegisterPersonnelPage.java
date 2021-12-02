@@ -90,8 +90,9 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
             }
         });
 
-        errorMessageLabel.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
-        errorMessageLabel.setForeground(new java.awt.Color(255, 51, 51));
+        errorMessageLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        errorMessageLabel.setForeground(new java.awt.Color(153, 0, 0));
+        errorMessageLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         backToMenuBtn.setText("Back to Menu");
         backToMenuBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -106,10 +107,6 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(errorMessageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +135,11 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(hpRBtn))
                             .addComponent(empIDTxt))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(errorMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,9 +175,9 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerBtn)
                     .addComponent(backToMenuBtn))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(errorMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -229,7 +230,7 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
 
         errorMessages += person.validate_age(ageTxt.getText());
         errorMessages += person.validate_gender(genderTxt.getText());
-        
+
         int age = 0;
         char gender = 0;
         if (errorMessages.isEmpty()) {
@@ -238,13 +239,11 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
         }
 
         Personnel personnel = new Personnel(person, ic_no, emp_id, job_position);
-        personnel.setIc_no(ic_no);
-        personnel.setName(name); errorMessages += person.validate_name();
+        personnel.setName(name);
+        errorMessages += personnel.validate_name();
         personnel.setAge(age);
         personnel.setGender(gender);
-        personnel.setEmp_id(emp_id);
-        personnel.setJob_position(job_position);
-        
+
         if (errorMessages.isEmpty()) {
             File f = new File("Personnel.txt");
             if (f.exists() && !f.isDirectory()) {
@@ -252,6 +251,10 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Duplicate record detected! Please try again.");
                 } else {
                     if (DataAccess.isNumeric(ic_no)) {
+                        personnel.setIc_no(ic_no);
+                        personnel.setEmp_id(emp_id);
+                        personnel.setJob_position(job_position);
+
                         personnel.register_personnel();
                         clearFields();
                         JOptionPane.showMessageDialog(null, "Registration Successful.");
@@ -261,6 +264,10 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
                 }
             } else {
                 if (DataAccess.isNumeric(ic_no)) {
+                    personnel.setIc_no(ic_no);
+                    personnel.setEmp_id(emp_id);
+                    personnel.setJob_position(job_position);
+
                     personnel.register_personnel();
                     clearFields();
                     JOptionPane.showMessageDialog(null, "Registration Successful.");
@@ -269,7 +276,7 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
                 }
             }
         } else {
-            errorMessageLabel.setText(errorMessages);
+            JOptionPane.showMessageDialog(null, errorMessages);
         }
     }
 

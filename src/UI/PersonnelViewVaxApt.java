@@ -329,7 +329,7 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         String id = searchTxt.getText();
-        String[] ary = DataAccess.get_vac_apt_by_id(id);
+        String[] ary = DataAccess.get_data_by_id("Appointment.txt", id, 9, 0);
 
         if (!searchTxt.getText().equals("")) {
             if (ary[0] == null) {

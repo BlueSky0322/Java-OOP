@@ -44,17 +44,17 @@ public class DataAccess {
         return false;
     }
     
-    public static String[] get_vac_apt_by_id(String id) {
-        String[] arrayList = new String[9];
+    public static String[] get_data_by_id(String filename, String id, int ary_size, int column) {
+        String[] arrayList = new String[ary_size];
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Appointment.txt"));
+            BufferedReader br = new BufferedReader(new FileReader(filename));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] tempAry = line.split(":");
                 if (tempAry.length < 1) {
                     break;
                 } 
-                if (id.equals(tempAry[0])){
+                if (id.equals(tempAry[column])){
                     arrayList = tempAry; 
                 }
             }
@@ -66,7 +66,7 @@ public class DataAccess {
     
     public static boolean isNumeric(String str) {
         try {
-            Double.parseDouble(str);
+            Integer.parseInt(str);
             return true;
         } catch (NumberFormatException e) {
             return false;

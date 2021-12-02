@@ -7,14 +7,7 @@ package UI;
 
 import Classes.Appointment;
 import Classes.DataAccess;
-import static Classes.DataAccess.get_vac_apt_by_id;
-import Classes.People;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ListIterator;
 import javax.swing.JOptionPane;
 
@@ -229,7 +222,7 @@ public class PeopleViewVaxApt extends javax.swing.JFrame {
                     .addComponent(bddLabel)
                     .addComponent(bddTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(vaxStatusLabel)
                     .addComponent(vaxStatusTxtLabel))
                 .addGap(18, 18, 18)
@@ -249,7 +242,7 @@ public class PeopleViewVaxApt extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         String id = icPassportNoTxt.getText();
-        String[] ary = DataAccess.get_vac_apt_by_id(id);
+        String[] ary = DataAccess.get_data_by_id("Appointment.txt", id, 9, 0);
 
         if (!icPassportNoTxt.getText().equals("")) {
             if (ary[0] == null) {

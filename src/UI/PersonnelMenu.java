@@ -37,6 +37,7 @@ public class PersonnelMenu extends javax.swing.JFrame {
         backToLoginBtn = new javax.swing.JButton();
         viewVaxSupplyBtn = new javax.swing.JButton();
         registerPersonnelBtn = new javax.swing.JButton();
+        viewDetailsBtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +86,13 @@ public class PersonnelMenu extends javax.swing.JFrame {
             }
         });
 
+        viewDetailsBtn1.setText("View / Edit Personnel Records");
+        viewDetailsBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewDetailsBtn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,30 +100,32 @@ public class PersonnelMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(registerVaxAptBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(viewVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(viewVaxSupplyBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(viewDetailsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(registerPersonnelBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(viewVaxSupplyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(registerVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(viewDetailsBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                                .addComponent(registerPersonnelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(viewDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(backToLoginBtn)))
-                .addContainerGap(38, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(72, 72, 72))
+                        .addGap(160, 160, 160)
+                        .addComponent(backToLoginBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel1)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(registerPersonnelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(viewDetailsBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -124,9 +134,9 @@ public class PersonnelMenu extends javax.swing.JFrame {
                 .addComponent(viewVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewVaxSupplyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(backToLoginBtn)
-                .addGap(26, 26, 26))
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -153,13 +163,19 @@ public class PersonnelMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_backToLoginBtnActionPerformed
 
     private void viewVaxSupplyBtn(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewVaxSupplyBtn
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new VaccineSupply().setVisible(true);
     }//GEN-LAST:event_viewVaxSupplyBtn
 
     private void registerPersonnelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerPersonnelBtnActionPerformed
         this.setVisible(false);
         new RegisterPersonnelPage().setVisible(true);
     }//GEN-LAST:event_registerPersonnelBtnActionPerformed
+
+    private void viewDetailsBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsBtn1ActionPerformed
+        this.setVisible(false);
+        new ViewPersonnelRecords().setVisible(true);
+    }//GEN-LAST:event_viewDetailsBtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,6 +219,7 @@ public class PersonnelMenu extends javax.swing.JFrame {
     private javax.swing.JButton registerPersonnelBtn;
     private javax.swing.JButton registerVaxAptBtn;
     private javax.swing.JButton viewDetailsBtn;
+    private javax.swing.JButton viewDetailsBtn1;
     private javax.swing.JButton viewVaxAptBtn;
     private javax.swing.JButton viewVaxSupplyBtn;
     // End of variables declaration//GEN-END:variables

@@ -90,7 +90,7 @@ public class Person {
     }
 
     public String validate_name() {
-        if (this.name.isEmpty() || DataAccess.isNumeric(this.name)) {
+        if (DataAccess.isNumeric(this.name)) {
             return "Invalid Name, ";
         }
         return "";
@@ -107,7 +107,7 @@ public class Person {
         if (gender.equals("F") || gender.equals("M")) {
             return "";
         }
-        return "Invalid gender, " + gender;
+        return "Invalid gender, ";
     }
 
     public boolean search_id(String search) {
