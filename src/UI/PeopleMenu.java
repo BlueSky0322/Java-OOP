@@ -10,7 +10,7 @@ import Classes.Person;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class PeopleMenu extends javax.swing.JFrame {
 

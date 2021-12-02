@@ -13,19 +13,21 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class ViewPersonnelRecords extends javax.swing.JFrame {
 
     /**
      * Creates new form RegisterVaxApt
      */
+    private String user_type = "";
     private ArrayList<String[]> arrayList;
     private ListIterator<String[]> listIterator;
     int size;
 
-    public ViewPersonnelRecords() {
+    public ViewPersonnelRecords(String user_type) {
         initComponents();
+        this.user_type = user_type;
         icPassportNoTxt.setEditable(false);
         arrayList = DataAccess.get_data("Personnel.txt");
         size = 0;
@@ -283,7 +285,7 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
 
     private void backToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuBtnActionPerformed
         this.setVisible(false);
-        new PersonnelMenu().setVisible(true);
+        new PersonnelMenu(this.user_type).setVisible(true);
     }//GEN-LAST:event_backToMenuBtnActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
@@ -514,7 +516,7 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewPersonnelRecords().setVisible(true);
+                new ViewPersonnelRecords("").setVisible(true);
             }
         });
     }

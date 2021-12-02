@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author SAREINDRA
+ * @author Sareindra
  */
 public class Appointment implements VaxDetails, GenerateID {
 

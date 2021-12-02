@@ -17,19 +17,22 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class PersonnelViewVaxPrg extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewVaxPrgDetails
      */
+    private String user_type = "";
     private ArrayList<String[]> arrayList;
     private ListIterator<String[]> listIterator;
     int size;
 
-    public PersonnelViewVaxPrg() {
+    public PersonnelViewVaxPrg(String user_type) {
         initComponents();
+        
+        this.user_type = user_type;
         arrayList = DataAccess.get_data("People.txt");
         size = 0;
     }
@@ -435,7 +438,7 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
 
     private void backToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuBtnActionPerformed
         this.setVisible(false);
-        new PersonnelMenu().setVisible(true);
+        new PersonnelMenu(this.user_type).setVisible(true);
     }//GEN-LAST:event_backToMenuBtnActionPerformed
 
     void clearFields() {
@@ -493,7 +496,7 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonnelViewVaxPrg().setVisible(true);
+                new PersonnelViewVaxPrg("").setVisible(true);
             }
         });
     }

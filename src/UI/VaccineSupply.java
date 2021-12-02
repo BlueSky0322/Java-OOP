@@ -11,17 +11,19 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class VaccineSupply extends javax.swing.JFrame {
 
     /**
      * Creates new form VaccineSupply
      */
+    private String user_type = "";
     private String centre_id = "1";
 
-    public VaccineSupply() {
+    public VaccineSupply(String user_type) {
         initComponents();
+        this.user_type = user_type;
         centreNameTxt.setEditable(false);
         centreAddressTxt.setEditable(false);
     }
@@ -229,7 +231,7 @@ public class VaccineSupply extends javax.swing.JFrame {
 
     private void backToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuBtnActionPerformed
         this.setVisible(false);
-        new PersonnelMenu().setVisible(true);
+        new PersonnelMenu(this.user_type).setVisible(true);
     }//GEN-LAST:event_backToMenuBtnActionPerformed
 
     int check_mode(String mode, int existing_amount, int amount) {
@@ -378,7 +380,7 @@ public class VaccineSupply extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VaccineSupply().setVisible(true);
+                new VaccineSupply("").setVisible(true);
             }
         });
     }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class DataAccess {
     public static ArrayList<String[]> get_data(String filename) {

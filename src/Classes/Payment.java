@@ -6,7 +6,7 @@
 package Classes;
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public abstract class Payment {
     public static final double AMOUNT = 50.00;

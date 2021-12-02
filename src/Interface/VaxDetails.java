@@ -7,7 +7,7 @@ package Interface;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public interface VaxDetails {
     static final int FFD_AFTER = 3;

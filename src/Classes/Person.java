@@ -16,7 +16,7 @@ import java.util.Iterator;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class Person {
 

@@ -6,18 +6,10 @@
 package Main;
 
 import UI.LoginPage;
-import UI.PeopleRegisterVaxApt;
-import UI.PersonnelViewVaxApt;
-import UI.RegisterPersonnelPage;
-import UI.VaccineSupply;
-import UI.ViewPersonnelRecords;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class OODJ {
 
@@ -25,13 +17,7 @@ public class OODJ {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        VaccineSupply login = new VaccineSupply();
+        LoginPage login = new LoginPage();
         login.setVisible(true);
-//        System.out.println(getFirst_dose_date());
-    }
-
-    public static String getFirst_dose_date() {
-        String first_dose_date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"));
-        return first_dose_date;
     }
 }

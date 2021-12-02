@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author SAREINDRA
+ * @author Sareindra
  */
 public class Personnel extends User {
 

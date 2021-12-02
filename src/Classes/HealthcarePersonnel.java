@@ -10,7 +10,7 @@ import java.io.FileReader;
 
 /**
  *
- * @author SAREINDRA
+ * @author Sareindra
  */
 public class HealthcarePersonnel extends Personnel{
     

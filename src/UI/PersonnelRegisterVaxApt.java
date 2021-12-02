@@ -17,15 +17,18 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class PersonnelRegisterVaxApt extends javax.swing.JFrame {
 
     /**
      * Creates new form RegisterVaxApt
      */
-    public PersonnelRegisterVaxApt() {
+    private String user_type = "";
+    
+    public PersonnelRegisterVaxApt(String user_type) {
         initComponents();
+        this.user_type = user_type;
     }
 
     /**
@@ -122,7 +125,7 @@ public class PersonnelRegisterVaxApt extends javax.swing.JFrame {
 
     private void backToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuBtnActionPerformed
         this.setVisible(false);
-        new PersonnelMenu().setVisible(true);
+        new PersonnelMenu(this.user_type).setVisible(true);
     }//GEN-LAST:event_backToMenuBtnActionPerformed
 
     private void registerAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAptBtnActionPerformed
@@ -214,7 +217,7 @@ public class PersonnelRegisterVaxApt extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonnelRegisterVaxApt().setVisible(true);
+                new PersonnelRegisterVaxApt("").setVisible(true);
             }
         });
     }

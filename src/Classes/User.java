@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class User extends Person {
 
@@ -34,27 +34,16 @@ public class User extends Person {
         this.username = username;
     }
 
-    public boolean verify_admin_login(){
-        return this.username.equals("admin") && this.password.equals("admin123");
-    }
-    
-    public boolean verify_people_login(){
-        
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("People.txt"));
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] ary = line.split(":");
-                if(ary.length<1){
-                    break;
-                }
-                if(this.username.equals(ary[3]) && this.password.equals(ary[7])){
-                    return true;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public String verify_admin_login() {
+        String[] user_data = DataAccess.get_data_by_id("Personnel.txt", this.username, 6, 0);
+        if(user_data[0].equals(this.username) && user_data[4].equals(this.password)){
+            return user_data[5];
         }
-        return false;
+        return "";
+        
+    }
+
+    public boolean verify_people_login() {
+        return DataAccess.validate_data("People.txt", this.username, 3) && DataAccess.validate_data("People.txt", this.password, 7);
     }
 }

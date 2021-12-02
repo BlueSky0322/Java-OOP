@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class Cash extends Payment {
     protected double balance;

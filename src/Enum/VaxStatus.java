@@ -8,7 +8,7 @@ package Enum;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public enum VaxStatus {
     NOT_VACCINATED,

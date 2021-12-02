@@ -5,12 +5,13 @@
  */
 package UI;
 
+import Classes.DataAccess;
 import Classes.User;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class LoginPage extends javax.swing.JFrame {
 
@@ -18,6 +19,7 @@ public class LoginPage extends javax.swing.JFrame {
      * Creates new form LoginPage
      */
     User user = new User();
+
     public LoginPage() {
         initComponents();
         setVisible(true);
@@ -130,15 +132,15 @@ public class LoginPage extends javax.swing.JFrame {
     private void loginPeopleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPeopleBtnActionPerformed
         String username = usernameTxt.getText();
         String password = passwordTxt.getText();
-      
+
         user.setUsername(username);
         user.setPassword(password);
-        
-        if (user.verify_people_login()){
+
+        if (user.verify_people_login()) {
             JOptionPane.showMessageDialog(null, "Login successful!");
             this.setVisible(false);
             new PeopleMenu().setVisible(true);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Invalid login!");
             usernameTxt.setText("");
             passwordTxt.setText("");
@@ -148,19 +150,21 @@ public class LoginPage extends javax.swing.JFrame {
     private void loginPersonnelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPersonnelBtnActionPerformed
         String username = usernameTxt.getText();
         String password = passwordTxt.getText();
-      
+
         user.setUsername(username);
         user.setPassword(password);
-        
-        if (user.verify_admin_login()){
-            JOptionPane.showMessageDialog(null, "Login successful!");
-            this.setVisible(false);
-            new PersonnelMenu().setVisible(true);
-        }else{
+        String user_type = user.verify_admin_login();
+        if (user_type.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Invalid login!");
             usernameTxt.setText("");
             passwordTxt.setText("");
-        }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Login successful!");
+            this.setVisible(false);
+            new PersonnelMenu(user_type).setVisible(true);
+            
+        } 
     }//GEN-LAST:event_loginPersonnelBtnActionPerformed
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed

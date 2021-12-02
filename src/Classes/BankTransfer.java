@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class BankTransfer extends Payment {
     private String bank_acc_no;

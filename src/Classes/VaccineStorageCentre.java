@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class VaccineStorageCentre {
 

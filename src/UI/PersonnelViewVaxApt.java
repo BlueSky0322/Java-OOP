@@ -15,19 +15,26 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class PersonnelViewVaxApt extends javax.swing.JFrame {
 
     /**
      * Creates new form RegisterVaxApt
      */
+    private String user_type = "";
     private ArrayList<String[]> arrayList;
     private ListIterator<String[]> listIterator;
     int size;
 
-    public PersonnelViewVaxApt() {
+    public PersonnelViewVaxApt(String user_type) {
         initComponents();
+        
+        this.user_type = user_type;
+        if(this.user_type.equals("Healthcare Personnel")){
+            cancelAptBtn.setEnabled(false);
+        }
+        
         icPassportNoTxt.setEditable(false);
         centreAddressTxt.setEditable(false);
         arrayList = DataAccess.get_data("Appointment.txt");
@@ -324,7 +331,7 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
 
     private void backToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuBtnActionPerformed
         this.setVisible(false);
-        new PersonnelMenu().setVisible(true);
+        new PersonnelMenu(this.user_type).setVisible(true);
     }//GEN-LAST:event_backToMenuBtnActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
@@ -541,7 +548,7 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonnelViewVaxApt().setVisible(true);
+                new PersonnelViewVaxApt("").setVisible(true);
             }
         });
     }

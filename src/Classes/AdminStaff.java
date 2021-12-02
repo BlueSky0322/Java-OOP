@@ -14,7 +14,7 @@ import java.util.Iterator;
 
 /**
  *
- * @author SAREINDRA
+ * @author Sareindra
  */
 public class AdminStaff extends Personnel {
 
