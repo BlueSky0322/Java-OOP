@@ -165,7 +165,7 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         this.setVisible(false);
-        new RegisterPage().setVisible(true);
+        new RegisterPeoplePage().setVisible(true);
     }//GEN-LAST:event_registerBtnActionPerformed
 
     /**

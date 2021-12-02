@@ -317,7 +317,7 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
             person.setAddress(address);
 
             errorMessages += person.validate_name();
-            errorMessages += person.validate_tel_no_format();
+            errorMessages += person.validate_tel_no();
             errorMessages += person.validate_email();
             errorMessages += person.validate_address();
 

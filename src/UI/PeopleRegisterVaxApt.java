@@ -6,12 +6,9 @@
 package UI;
 
 import Classes.Appointment;
-import Classes.People;
+import Classes.DataAccess;
 import Enum.VaxStatus;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -55,11 +52,6 @@ public class PeopleRegisterVaxApt extends javax.swing.JFrame {
         vaccineNameLabel.setText("Choose Vaccine:");
 
         vaxNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pfizer", "Aztrazeneca", "Sinovac" }));
-        vaxNameComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vaxNameComboBoxActionPerformed(evt);
-            }
-        });
 
         registerAptBtn.setText("Register Appointment");
         registerAptBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -124,10 +116,6 @@ public class PeopleRegisterVaxApt extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void vaxNameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vaxNameComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vaxNameComboBoxActionPerformed
-
     private void backToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuBtnActionPerformed
         this.setVisible(false);
         new PeopleMenu().setVisible(true);
@@ -175,7 +163,7 @@ public class PeopleRegisterVaxApt extends javax.swing.JFrame {
 
     public void assign_aptdetails(Appointment apt, String vax_name) {
         String centre_id = apt.validate_vax_quantity(vax_name);
-        if (People.isNumeric(centre_id)) {
+        if (DataAccess.isNumeric(centre_id)) {
             apt.setVaccine_name(vaxNameComboBox.getSelectedItem().toString());
             apt.setAppointment_id(apt.generateID());
             apt.setCentre_name(apt.retrieve_centre_details(centre_id, 1));

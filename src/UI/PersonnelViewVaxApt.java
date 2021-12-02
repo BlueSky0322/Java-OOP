@@ -8,7 +8,6 @@ package UI;
 import Classes.Appointment;
 import Classes.Centre;
 import Classes.DataAccess;
-import static Classes.Person.isNumeric;
 import Enum.VaxStatus;
 import java.util.ArrayList;
 import java.util.ListIterator;
@@ -364,7 +363,7 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
                 || fddTxt.getText().equals("") || sddTxt.getText().equals("") || bddTxt.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Some fields are Empty!");
         } else {
-            if (isNumeric(aptIDTxt.getText())) {
+            if (DataAccess.isNumeric(aptIDTxt.getText())) {
                 String search = searchTxt.getText();
 
                 Appointment apt = new Appointment();

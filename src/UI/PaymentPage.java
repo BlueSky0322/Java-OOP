@@ -7,8 +7,8 @@ package UI;
 
 import Classes.BankTransfer;
 import Classes.Cash;
+import Classes.DataAccess;
 import Classes.Payment;
-import static Classes.Person.isNumeric;
 import javax.swing.JOptionPane;
 
 /**
@@ -200,7 +200,7 @@ public class PaymentPage extends javax.swing.JFrame {
                 cash.setPassport_no(registeredPeopleTxt.getText());
                 cash.setPayment_type("Cash");
 
-                if (isNumeric(amountPaidTxt.getText())) {
+                if (DataAccess.isNumeric(amountPaidTxt.getText())) {
                     cash.setAmount_paid(Double.parseDouble(amountPaidTxt.getText()));
                     if (cash.validate_amount_paid()) {
                         cash.calc_balance();
@@ -224,11 +224,11 @@ public class PaymentPage extends javax.swing.JFrame {
 
                     bt.setPassport_no(registeredPeopleTxt.getText());
                     bt.setBankName(bankNameTxt.getText());
-                    if (isNumeric(accNoTxt.getText())) {
+                    if (DataAccess.isNumeric(accNoTxt.getText())) {
                         bt.setBankAccNo(accNoTxt.getText());
                         bt.setPayment_type("Bank Transfer");
 
-                        if (isNumeric(amountPaidTxt.getText())) {
+                        if (DataAccess.isNumeric(amountPaidTxt.getText())) {
                             bt.setAmount_paid(Double.parseDouble(amountPaidTxt.getText()));
                             if (bt.validate_amount_paid()) {
                                 if (bt.make_payment()) {
