@@ -205,6 +205,7 @@ public class RegisterPeoplePage extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nonCitizenRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nonCitizenRBtnActionPerformed

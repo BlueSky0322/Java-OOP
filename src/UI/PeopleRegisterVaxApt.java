@@ -9,6 +9,7 @@ import Classes.Appointment;
 import Classes.DataAccess;
 import Enum.VaxStatus;
 import java.io.File;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -114,6 +115,7 @@ public class PeopleRegisterVaxApt extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuBtnActionPerformed
@@ -166,8 +168,8 @@ public class PeopleRegisterVaxApt extends javax.swing.JFrame {
         if (DataAccess.isNumeric(centre_id)) {
             apt.setVaccine_name(vaxNameComboBox.getSelectedItem().toString());
             apt.setAppointment_id(apt.generateID());
-            apt.setCentre_name(apt.retrieve_centre_details(centre_id, 1));
-            apt.setCentre_address(apt.retrieve_centre_details(centre_id, 2));
+            apt.setCentre_name(DataAccess.get_data_by_var("Centre.txt", centre_id, 3, 0)[1]);
+            apt.setCentre_address(DataAccess.get_data_by_var("Centre.txt", centre_id, 3, 0 )[2]);
             apt.setFirst_dose_date(apt.setfdd());
             apt.setSecond_dose_date(apt.setsdd(apt.retrieve_time_delta(vax_name, "Second dose")));
             apt.setBooster_dose_date(apt.setbdd(apt.retrieve_time_delta(vax_name, "Booster dose")));

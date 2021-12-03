@@ -95,8 +95,8 @@ public class LoginPage extends javax.swing.JFrame {
                                     .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(registerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(loginPersonnelBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -135,15 +135,19 @@ public class LoginPage extends javax.swing.JFrame {
 
         user.setUsername(username);
         user.setPassword(password);
-
-        if (user.verify_people_login()) {
-            JOptionPane.showMessageDialog(null, "Login successful!");
-            this.setVisible(false);
-            new PeopleMenu().setVisible(true);
+        
+        if (usernameTxt.getText().equals("") || passwordTxt.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Some fields are Empty!");
         } else {
-            JOptionPane.showMessageDialog(null, "Invalid login!");
-            usernameTxt.setText("");
-            passwordTxt.setText("");
+            if (user.verify_people_login()) {
+                JOptionPane.showMessageDialog(null, "Login successful!");
+                this.setVisible(false);
+                new PeopleMenu().setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid login! Please register first.");
+                usernameTxt.setText("");
+                passwordTxt.setText("");
+            }
         }
     }//GEN-LAST:event_loginPeopleBtnActionPerformed
 
@@ -153,6 +157,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         user.setUsername(username);
         user.setPassword(password);
+        
         String user_type = user.verify_admin_login();
         if (user_type.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Invalid login!");
@@ -163,8 +168,8 @@ public class LoginPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Login successful!");
             this.setVisible(false);
             new PersonnelMenu(user_type).setVisible(true);
-            
-        } 
+
+        }
     }//GEN-LAST:event_loginPersonnelBtnActionPerformed
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
