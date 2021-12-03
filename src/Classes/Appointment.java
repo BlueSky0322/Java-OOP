@@ -147,7 +147,7 @@ public class Appointment implements VaxDetails, GenerateID {
     }
 
     public String validate_vax_quantity(String vax_name) {
-        ArrayList<String[]> arrayList = DataAccess.get_data("CentreVaccineStorage.txt");
+        ArrayList<String[]> arrayList = DataAccess.get_data("VaccineStorageCentre.txt");
         String centre_id = "";
         switch (vax_name) {
             case "Pfizer":
