@@ -5,9 +5,6 @@
  */
 package UI;
 
-import Classes.Citizen;
-import Classes.Person;
-
 /**
  *
  * @author Ryan Ng, Sareindra

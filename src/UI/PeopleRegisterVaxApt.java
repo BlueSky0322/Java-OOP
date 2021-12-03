@@ -9,7 +9,6 @@ import Classes.Appointment;
 import Classes.DataAccess;
 import Enum.VaxStatus;
 import java.io.File;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**

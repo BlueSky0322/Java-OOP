@@ -7,12 +7,8 @@ package UI;
 
 import Classes.Appointment;
 import Classes.DataAccess;
-import Classes.People;
 import Enum.VaxStatus;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
