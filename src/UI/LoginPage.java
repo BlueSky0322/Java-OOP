@@ -5,7 +5,6 @@
  */
 package UI;
 
-import Classes.DataAccess;
 import Classes.User;
 import javax.swing.JOptionPane;
 
@@ -127,6 +126,7 @@ public class LoginPage extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginPeopleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPeopleBtnActionPerformed
@@ -208,13 +208,13 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel headerLabel;
-    private javax.swing.JButton loginPeopleBtn;
-    private javax.swing.JButton loginPersonnelBtn;
-    private javax.swing.JLabel passwordLabel;
-    private javax.swing.JPasswordField passwordTxt;
-    private javax.swing.JButton registerBtn;
-    private javax.swing.JLabel usernameLabel;
-    private javax.swing.JTextField usernameTxt;
+    javax.swing.JLabel headerLabel;
+    javax.swing.JButton loginPeopleBtn;
+    javax.swing.JButton loginPersonnelBtn;
+    javax.swing.JLabel passwordLabel;
+    javax.swing.JPasswordField passwordTxt;
+    javax.swing.JButton registerBtn;
+    javax.swing.JLabel usernameLabel;
+    javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables
 }
