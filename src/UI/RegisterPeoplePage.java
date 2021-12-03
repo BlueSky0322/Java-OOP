@@ -266,7 +266,7 @@ public class RegisterPeoplePage extends javax.swing.JFrame {
                 ctz.register_vax_prg();
                 JOptionPane.showMessageDialog(null, "Registration successful");
             } else {
-                errorMessageLabel.setText(errorMessages);
+                JOptionPane.showMessageDialog(null, errorMessages);
             }
         } else {
             citizenRBtn.setSelected(false);
@@ -278,12 +278,11 @@ public class RegisterPeoplePage extends javax.swing.JFrame {
             errorMessages += nctz.validate_passportno();
 
             if (errorMessages.isEmpty()) {
-                nctz.register_vax_prg();
-                JOptionPane.showMessageDialog(null, "Registration successful.\nPlease proceed to payment.");
+                JOptionPane.showMessageDialog(null, "Please proceed to payment to complete Registration.");
                 this.setVisible(false);
-                new PaymentPage(nctz.getPassport_no()).setVisible(true);
+                new PaymentPage(nctz).setVisible(true);
             } else {
-                errorMessageLabel.setText(errorMessages);
+                JOptionPane.showMessageDialog(null, errorMessages);
             }
         }
     }//GEN-LAST:event_registerBtnActionPerformed
