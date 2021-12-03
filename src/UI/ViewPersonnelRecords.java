@@ -21,6 +21,7 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
      * Creates new form RegisterVaxApt
      */
     private String user_type = "";
+    private String initial_emp_id = "";
     private ArrayList<String[]> arrayList;
     private ListIterator<String[]> listIterator;
     int size;
@@ -309,6 +310,7 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
                     asRBtn.setSelected(false);
                 }
                 empIDTxt.setText(ary[4]);
+                initial_emp_id = ary[4];
             }
         } else {
             JOptionPane.showMessageDialog(null, "Some fields are empty");
@@ -317,7 +319,8 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
 
     private void cancelREcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelREcBtnActionPerformed
         AdminStaff as = new AdminStaff();
-        listIterator = as.modify_personnel_details(icPassportNoTxt.getText(), "remove").listIterator();
+        arrayList = as.modify_personnel_details(icPassportNoTxt.getText(), "remove");
+        listIterator = arrayList.listIterator();
         clearFields();
         JOptionPane.showMessageDialog(null, "Record removed.");
     }//GEN-LAST:event_cancelREcBtnActionPerformed
@@ -328,7 +331,6 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Some fields are Empty!");
         } else {
             if (DataAccess.isNumeric(icPassportNoTxt.getText())) {
-                String search = searchTxt.getText();
                 AdminStaff as = new AdminStaff();
 
                 String errorMessages = "";
@@ -355,11 +357,11 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
                 }
                 as.setEmp_id(empIDTxt.getText());
 
-                if (DataAccess.validate_data("Personnel.txt", empIDTxt.getText(), 4)) {
+                if (DataAccess.validate_duplicate("Personnel.txt", empIDTxt.getText(), initial_emp_id, 4)) {
                     JOptionPane.showMessageDialog(null, "Duplicate record detected! Please try again.");
                 } else {
                     if (errorMessages.isEmpty()) {
-                        as.modify_personnel_details(search, "modify");
+                        arrayList = as.modify_personnel_details(icPassportNoTxt.getText(), "modify");
                         JOptionPane.showMessageDialog(null, "Personnel record updated.");
                     } else {
                         JOptionPane.showMessageDialog(null, errorMessages);
@@ -390,6 +392,7 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
                     asRBtn.setSelected(false);
                 }
                 empIDTxt.setText(ary[4]);
+                initial_emp_id = ary[4];
             } else {
                 JOptionPane.showMessageDialog(null, "You reached the end of the records.");
             }
@@ -413,6 +416,7 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
                 asRBtn.setSelected(false);
             }
             empIDTxt.setText(ary[4]);
+            initial_emp_id = ary[4];
         } else {
             JOptionPane.showMessageDialog(null, "You reached the start of the records.");
         }
@@ -437,6 +441,7 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
                     asRBtn.setSelected(false);
                 }
                 empIDTxt.setText(ary[4]);
+                initial_emp_id = ary[4];
             } else {
                 JOptionPane.showMessageDialog(null, "You reached the start of the records.");
             }
@@ -459,6 +464,7 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
             asRBtn.setSelected(false);
         }
         empIDTxt.setText(ary[4]);
+        initial_emp_id = ary[4];
     }//GEN-LAST:event_firstBtnActionPerformed
 
     private void asRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asRBtnActionPerformed
@@ -476,14 +482,24 @@ public class ViewPersonnelRecords extends javax.swing.JFrame {
     }//GEN-LAST:event_hpRBtnActionPerformed
 
     void clearFields() {
-        icPassportNoTxt.setText("");
-        nameTxt.setText("");
-        ageTxt.setText("");
-        genderTxt.setText("");
-        empIDTxt.setText("");
-        asRBtn.setSelected(false);
-        hpRBtn.setSelected(false);
+        size = arrayList.size();
+        listIterator = arrayList.listIterator();
+        String[] ary = listIterator.next();
+        icPassportNoTxt.setText(ary[0]);
+        nameTxt.setText(ary[1]);
+        ageTxt.setText(ary[2]);
+        genderTxt.setText(ary[3]);
+        if (ary[5].equals("Admin Staff")) {
+            asRBtn.setSelected(true);
+            hpRBtn.setSelected(false);
+        } else {
+            hpRBtn.setSelected(true);
+            asRBtn.setSelected(false);
+        }
+        empIDTxt.setText(ary[4]);
+        initial_emp_id = ary[4];
     }
+
     /**
      * @param args the command line arguments
      */

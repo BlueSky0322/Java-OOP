@@ -36,48 +36,65 @@
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="firstBtn" min="-2" pref="76" max="-2" attributes="0"/>
-                          <Component id="previousBtn" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="modifyDetailsBtn" max="32767" attributes="0"/>
+                                      <Component id="removeBtn" pref="132" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lastBtn" min="-2" pref="76" max="-2" attributes="0"/>
+                                      <Component id="nextBtn" min="-2" pref="76" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="citizenRBtn" min="-2" max="-2" attributes="0"/>
+                                  <Component id="icPassportNoTxt" min="-2" pref="186" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="modifyDetailsBtn" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="removeBtn" min="-2" pref="120" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lastBtn" min="-2" pref="76" max="-2" attributes="0"/>
-                          <Component id="nextBtn" min="-2" pref="76" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="backToMenuBtn" min="-2" pref="143" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="icPassportNoLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="icPassportNoTxt" min="-2" pref="186" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Component id="titleCardLabel3" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="telNoLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="genderLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="ageLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="noncitizenRBtn" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="telNoLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="genderLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ageLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="citizenshipLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="icPassportNoLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="emailTxt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="telNoTxt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="genderTxt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="ageTxt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="nameTxt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="addressTxt" min="-2" pref="187" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="emailTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="telNoTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="genderTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="ageTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="nameTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="addressTxt" min="-2" pref="187" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="titleCardLabel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="previousBtn" alignment="0" max="32767" attributes="0"/>
+                              <Component id="firstBtn" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -94,10 +111,6 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="titleCardLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="backToMenuBtn" min="-2" pref="143" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -148,11 +161,24 @@
                   <Component id="addressTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="citizenRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="noncitizenRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="citizenshipLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="icPassportNoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="icPassportNoTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="firstBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="modifyDetailsBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -166,9 +192,9 @@
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="backToMenuBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="errorMessageLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="7" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -326,6 +352,27 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Vaccination Programme Records"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="citizenshipLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Citizenship:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="citizenRBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Citizen"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="citizenRBtnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="noncitizenRBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Non-Citizen"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noncitizenRBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

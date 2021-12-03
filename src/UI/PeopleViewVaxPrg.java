@@ -5,15 +5,8 @@
  */
 package UI;
 
-import Classes.Citizen;
 import Classes.DataAccess;
 import Classes.Person;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**

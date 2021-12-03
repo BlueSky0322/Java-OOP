@@ -361,7 +361,8 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
 
     private void cancelAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAptBtnActionPerformed
         Appointment apt = new Appointment();
-        listIterator = apt.modify_apt_details(icPassportNoTxt.getText(), "remove").listIterator();
+        arrayList = apt.modify_apt_details(icPassportNoTxt.getText(), "remove");
+        listIterator = arrayList.listIterator();
         clearFields();
         JOptionPane.showMessageDialog(null, "Appointment cancelled.");
     }//GEN-LAST:event_cancelAptBtnActionPerformed
@@ -372,8 +373,6 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Some fields are Empty!");
         } else {
             if (DataAccess.isNumeric(aptIDTxt.getText())) {
-                String search = searchTxt.getText();
-
                 Appointment apt = new Appointment();
                 Centre ctr = new Centre();
 
@@ -401,7 +400,7 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
                 } else if (vaxStatusComboBox.getSelectedItem().equals("BOOSTER_DOSE_COMPLETE")) {
                     apt.setVax_status(VaxStatus.BOOSTER_DOSE_COMPLETE.name());
                 }
-                apt.modify_apt_details(search, "modify");
+                arrayList = apt.modify_apt_details(icPassportNoTxt.getText(), "modify");
                 JOptionPane.showMessageDialog(null, "Appointment updated.");
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid Appointment ID!");
@@ -500,15 +499,18 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
     }//GEN-LAST:event_centreNameComboBoxActionPerformed
 
     void clearFields() {
-        icPassportNoTxt.setText("");
-        vaxNameComboBox.setSelectedIndex(0);
-        aptIDTxt.setText("");
-        centreNameComboBox.setSelectedIndex(0);
-        centreAddressTxt.setText("");
-        fddTxt.setText("");
-        sddTxt.setText("");
-        bddTxt.setText("");
-        vaxStatusComboBox.setSelectedIndex(0);
+        size = arrayList.size();
+        listIterator = arrayList.listIterator();
+        String[] ary = listIterator.next();
+        icPassportNoTxt.setText(ary[0]);
+        vaxNameComboBox.setSelectedItem(ary[1]);
+        aptIDTxt.setText(ary[2]);
+        centreNameComboBox.setSelectedItem(ary[3]);
+        centreAddressTxt.setText(ary[4]);
+        fddTxt.setText(ary[5]);
+        sddTxt.setText(ary[6]);
+        bddTxt.setText(ary[7]);
+        vaxStatusComboBox.setSelectedItem(ary[8]);
     }
 
     void assign_centre_id(Appointment apt, Centre ctr, String id) {

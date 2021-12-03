@@ -31,7 +31,7 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
 
     public PersonnelViewVaxPrg(String user_type) {
         initComponents();
-        
+
         this.user_type = user_type;
         arrayList = DataAccess.get_data("People.txt");
         size = 0;
@@ -73,6 +73,9 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
         searchBtn = new javax.swing.JButton();
         backToMenuBtn = new javax.swing.JButton();
         titleCardLabel3 = new javax.swing.JLabel();
+        citizenshipLabel = new javax.swing.JLabel();
+        citizenRBtn = new javax.swing.JRadioButton();
+        noncitizenRBtn = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -164,6 +167,22 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
         titleCardLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         titleCardLabel3.setText("Vaccination Programme Records");
 
+        citizenshipLabel.setText("Citizenship:");
+
+        citizenRBtn.setText("Citizen");
+        citizenRBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                citizenRBtnActionPerformed(evt);
+            }
+        });
+
+        noncitizenRBtn.setText("Non-Citizen");
+        noncitizenRBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noncitizenRBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -178,42 +197,53 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
                         .addComponent(searchBtn)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(firstBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(previousBtn))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(modifyDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(removeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lastBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(icPassportNoLabel)
-                        .addGap(27, 27, 27)
-                        .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(titleCardLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
+                            .addGap(209, 209, 209)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(emailLabel)
-                                .addComponent(addressLabel)
-                                .addComponent(telNoLabel)
-                                .addComponent(genderLabel)
-                                .addComponent(ageLabel)
-                                .addComponent(nameLabel))
-                            .addGap(26, 26, 26)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(emailTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(telNoTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(nameTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(modifyDetailsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(removeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lastBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(nextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(citizenRBtn)
+                                    .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(backToMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(82, 82, 82)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(noncitizenRBtn)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(emailLabel)
+                                    .addComponent(addressLabel)
+                                    .addComponent(telNoLabel)
+                                    .addComponent(genderLabel)
+                                    .addComponent(ageLabel)
+                                    .addComponent(nameLabel)
+                                    .addComponent(citizenshipLabel)
+                                    .addComponent(icPassportNoLabel))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(emailTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(telNoTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nameTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(titleCardLabel3))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(previousBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(firstBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(29, Short.MAX_VALUE)
@@ -223,10 +253,7 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(titleCardLabel2)
-                        .addGap(104, 104, 104))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(backToMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(202, 202, 202))))
+                        .addGap(104, 104, 104))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,10 +293,19 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
                     .addComponent(addressLabel)
                     .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(citizenRBtn)
+                            .addComponent(noncitizenRBtn))
+                        .addGap(4, 4, 4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(citizenshipLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(icPassportNoLabel)
                     .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(firstBtn)
                     .addComponent(modifyDetailsBtn)
@@ -281,9 +317,9 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
                     .addComponent(previousBtn))
                 .addGap(19, 19, 19)
                 .addComponent(backToMenuBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(errorMessageLabel)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         pack();
@@ -319,6 +355,11 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
             person.setTel_no(tel_no);
             person.setEmail(email);
             person.setAddress(address);
+            if (citizenRBtn.isSelected()) {
+                person.setIs_citizen(true);
+            } else {
+                person.setIs_citizen(false);
+            }
 
             errorMessages += person.validate_name();
             errorMessages += person.validate_tel_no();
@@ -326,17 +367,18 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
             errorMessages += person.validate_address();
 
             if (errorMessages.isEmpty()) {
-                person.modify_person_details(icPassportNoTxt.getText(), "modify");
+                arrayList = person.modify_person_details(icPassportNoTxt.getText(), "modify");
                 JOptionPane.showMessageDialog(null, "Record updated.");
             } else {
-                errorMessageLabel.setText(errorMessages);
+                JOptionPane.showMessageDialog(null, errorMessages);
             }
         }
     }//GEN-LAST:event_modifyDetailsBtnActionPerformed
 
     private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
         Person person = new Person();
-        listIterator = person.modify_person_details(icPassportNoTxt.getText(), "remove").listIterator();
+        arrayList = person.modify_person_details(icPassportNoTxt.getText(), "remove");
+        listIterator = arrayList.listIterator();
         clearFields();
         JOptionPane.showMessageDialog(null, "Record removed.");
     }//GEN-LAST:event_removeBtnActionPerformed
@@ -351,6 +393,13 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
         telNoTxt.setText(ary[3]);
         emailTxt.setText(ary[4]);
         addressTxt.setText(ary[5]);
+        if (ary[6].equals("true")) {
+            citizenRBtn.setSelected(true);
+            noncitizenRBtn.setSelected(false);
+        } else {
+            citizenRBtn.setSelected(false);
+            noncitizenRBtn.setSelected(true);
+        }
         icPassportNoTxt.setText(ary[7]);
     }//GEN-LAST:event_firstBtnActionPerformed
 
@@ -367,6 +416,13 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
                 telNoTxt.setText(ary[3]);
                 emailTxt.setText(ary[4]);
                 addressTxt.setText(ary[5]);
+                if (ary[6].equals("true")) {
+                    citizenRBtn.setSelected(true);
+                    noncitizenRBtn.setSelected(false);
+                } else {
+                    citizenRBtn.setSelected(false);
+                    noncitizenRBtn.setSelected(true);
+                }
                 icPassportNoTxt.setText(ary[7]);
             } else {
                 JOptionPane.showMessageDialog(null, "You reached the end of the records.");
@@ -387,6 +443,13 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
                 telNoTxt.setText(ary[3]);
                 emailTxt.setText(ary[4]);
                 addressTxt.setText(ary[5]);
+                if (ary[6].equals("true")) {
+                    citizenRBtn.setSelected(true);
+                    noncitizenRBtn.setSelected(false);
+                } else {
+                    citizenRBtn.setSelected(false);
+                    noncitizenRBtn.setSelected(true);
+                }
                 icPassportNoTxt.setText(ary[7]);
             } else {
                 JOptionPane.showMessageDialog(null, "You reached the start of the records.");
@@ -405,6 +468,13 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
             telNoTxt.setText(ary[3]);
             emailTxt.setText(ary[4]);
             addressTxt.setText(ary[5]);
+            if (ary[6].equals("true")) {
+                citizenRBtn.setSelected(true);
+                noncitizenRBtn.setSelected(false);
+            } else {
+                citizenRBtn.setSelected(false);
+                noncitizenRBtn.setSelected(true);
+            }
             icPassportNoTxt.setText(ary[7]);
         } else {
             JOptionPane.showMessageDialog(null, "You reached the start of the records.");
@@ -429,6 +499,13 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
                     telNoTxt.setText(ary[3]);
                     emailTxt.setText(ary[4]);
                     addressTxt.setText(ary[5]);
+                    if (ary[6].equals("true")) {
+                        citizenRBtn.setSelected(true);
+                        noncitizenRBtn.setSelected(false);
+                    } else {
+                        citizenRBtn.setSelected(false);
+                        noncitizenRBtn.setSelected(true);
+                    }
                     icPassportNoTxt.setText(ary[7]);
                 }
             }
@@ -442,14 +519,36 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
         new PersonnelMenu(this.user_type).setVisible(true);
     }//GEN-LAST:event_backToMenuBtnActionPerformed
 
+    private void citizenRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_citizenRBtnActionPerformed
+        if (citizenRBtn.isSelected()) {
+            noncitizenRBtn.setSelected(false);
+        }
+    }//GEN-LAST:event_citizenRBtnActionPerformed
+
+    private void noncitizenRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noncitizenRBtnActionPerformed
+        if (noncitizenRBtn.isSelected()) {
+            citizenRBtn.setSelected(false);
+        }
+    }//GEN-LAST:event_noncitizenRBtnActionPerformed
+
     void clearFields() {
-        nameTxt.setText("");
-        ageTxt.setText("");
-        genderTxt.setText("");
-        telNoTxt.setText("");
-        emailTxt.setText("");
-        addressTxt.setText("");
-        icPassportNoTxt.setText("");
+        size = arrayList.size();
+        listIterator = arrayList.listIterator();
+        String[] ary = listIterator.next();
+        nameTxt.setText(ary[0]);
+        ageTxt.setText(ary[1]);
+        genderTxt.setText(ary[2]);
+        telNoTxt.setText(ary[3]);
+        emailTxt.setText(ary[4]);
+        addressTxt.setText(ary[5]);
+        if (ary[6].equals("true")) {
+            citizenRBtn.setSelected(true);
+            noncitizenRBtn.setSelected(false);
+        } else {
+            citizenRBtn.setSelected(false);
+            noncitizenRBtn.setSelected(true);
+        }
+        icPassportNoTxt.setText(ary[7]);
     }
 
     /**
@@ -508,6 +607,8 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
     private javax.swing.JLabel ageLabel;
     private javax.swing.JTextField ageTxt;
     private javax.swing.JButton backToMenuBtn;
+    private javax.swing.JRadioButton citizenRBtn;
+    private javax.swing.JLabel citizenshipLabel;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JLabel errorMessageLabel;
@@ -521,6 +622,7 @@ public class PersonnelViewVaxPrg extends javax.swing.JFrame {
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTxt;
     private javax.swing.JButton nextBtn;
+    private javax.swing.JRadioButton noncitizenRBtn;
     private javax.swing.JButton previousBtn;
     private javax.swing.JButton removeBtn;
     private javax.swing.JButton searchBtn;
