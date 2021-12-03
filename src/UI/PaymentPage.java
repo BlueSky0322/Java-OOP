@@ -7,13 +7,14 @@ package UI;
 
 import Classes.BankTransfer;
 import Classes.Cash;
+import Classes.DataAccess;
+import Classes.Noncitizen;
 import Classes.Payment;
-import static Classes.Person.isNumeric;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class PaymentPage extends javax.swing.JFrame {
 
@@ -21,11 +22,13 @@ public class PaymentPage extends javax.swing.JFrame {
      * Creates new form Payment
      */
     private String selected_payment_type;
+    private final Noncitizen nctz;
 
-    public PaymentPage(String registeredPeople) {
+    public PaymentPage(Noncitizen nctz) {
         initComponents();
+        this.nctz = nctz;
         selected_payment_type = "Cash";
-        registeredPeopleTxt.setText(registeredPeople);
+        registeredPeopleTxt.setText(nctz.getPassport_no());
         registeredPeopleTxt.setEditable(false);
         bankNameLabel.setVisible(false);
         bankNameTxt.setVisible(false);
@@ -58,6 +61,7 @@ public class PaymentPage extends javax.swing.JFrame {
         bankTransferBtn = new javax.swing.JButton();
         registeredPeopleLabel = new javax.swing.JLabel();
         registeredPeopleTxt = new javax.swing.JTextField();
+        cancelBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,6 +99,13 @@ public class PaymentPage extends javax.swing.JFrame {
 
         registeredPeopleLabel.setText("Passport No.:");
 
+        cancelBtn.setText("Cancel");
+        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,9 +120,6 @@ public class PaymentPage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(124, 124, 124)
-                                .addComponent(payBtn))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(amountPaidLabel, javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +141,12 @@ public class PaymentPage extends javax.swing.JFrame {
                                     .addComponent(accNoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(143, 143, 143)
-                        .addComponent(titleCardPaymentLabel)))
+                        .addComponent(titleCardPaymentLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(payBtn)
+                        .addGap(56, 56, 56)
+                        .addComponent(cancelBtn)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -165,12 +178,15 @@ public class PaymentPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(accNoLabel)
                     .addComponent(accNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(payBtn)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(payBtn)
+                    .addComponent(cancelBtn))
+                .addGap(18, 18, 18))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cashBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashBtnActionPerformed
@@ -200,12 +216,17 @@ public class PaymentPage extends javax.swing.JFrame {
                 cash.setPassport_no(registeredPeopleTxt.getText());
                 cash.setPayment_type("Cash");
 
-                if (isNumeric(amountPaidTxt.getText())) {
+                if (DataAccess.isNumeric(amountPaidTxt.getText())) {
                     cash.setAmount_paid(Double.parseDouble(amountPaidTxt.getText()));
                     if (cash.validate_amount_paid()) {
                         cash.calc_balance();
                         if (cash.make_payment()) {
-                            JOptionPane.showMessageDialog(null, "Payment Successful!");
+                            JOptionPane.showMessageDialog(null, "Payment Successful!\n" + "\n" + "Login Credentials\n"
+                                    + "Username: " + nctz.getTel_no() + "\n"
+                                    + "Password: " + nctz.getPassport_no());
+                            nctz.register_vax_prg();
+                            this.setVisible(false);
+                            new LoginPage().setVisible(true);
                         } else {
                             JOptionPane.showMessageDialog(null, "Payment Unsuccessful!");
                         }
@@ -224,15 +245,20 @@ public class PaymentPage extends javax.swing.JFrame {
 
                     bt.setPassport_no(registeredPeopleTxt.getText());
                     bt.setBankName(bankNameTxt.getText());
-                    if (isNumeric(accNoTxt.getText())) {
+                    if (DataAccess.isNumeric(accNoTxt.getText())) {
                         bt.setBankAccNo(accNoTxt.getText());
                         bt.setPayment_type("Bank Transfer");
 
-                        if (isNumeric(amountPaidTxt.getText())) {
+                        if (DataAccess.isNumeric(amountPaidTxt.getText())) {
                             bt.setAmount_paid(Double.parseDouble(amountPaidTxt.getText()));
                             if (bt.validate_amount_paid()) {
                                 if (bt.make_payment()) {
-                                    JOptionPane.showMessageDialog(null, "Payment Successful!");
+                                    JOptionPane.showMessageDialog(null, "Payment Successful!\n" + "\n" + "Login Credentials\n"
+                                            + "Username: " + nctz.getTel_no() + "\n"
+                                            + "Password: " + nctz.getPassport_no());
+                                    nctz.register_vax_prg();
+                                    this.setVisible(false);
+                                    new LoginPage().setVisible(true);
                                 } else {
                                     JOptionPane.showMessageDialog(null, "Payment Unsuccessful!");
                                 }
@@ -250,6 +276,23 @@ public class PaymentPage extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_payBtnActionPerformed
+
+    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
+        int result = JOptionPane.showConfirmDialog(this, "Proceed with payment cancellation?\n"
+                + "You will have to register again.", "Confirmation",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+        switch (result) {
+            case JOptionPane.YES_OPTION:
+                this.setVisible(false);
+                new RegisterPeoplePage().setVisible(true);
+                break;
+            case JOptionPane.NO_OPTION:
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_cancelBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,7 +325,7 @@ public class PaymentPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaymentPage("").setVisible(true);
+                new PaymentPage(new Noncitizen()).setVisible(true);
             }
         });
     }
@@ -297,6 +340,7 @@ public class PaymentPage extends javax.swing.JFrame {
     private javax.swing.JLabel bankNameLabel;
     private javax.swing.JTextField bankNameTxt;
     private javax.swing.JButton bankTransferBtn;
+    private javax.swing.JButton cancelBtn;
     private javax.swing.JButton cashBtn;
     private javax.swing.JButton payBtn;
     private javax.swing.JLabel registeredPeopleLabel;

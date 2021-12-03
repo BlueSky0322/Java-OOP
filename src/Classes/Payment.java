@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 package Classes;
+
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public abstract class Payment {
     public static final double AMOUNT = 50.00;

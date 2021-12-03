@@ -7,7 +7,7 @@ package Classes;
 
 /**
  *
- * @author SAREINDRA
+ * @author Sareindra
  */
 public class Vaccine {
     private String vax_code;

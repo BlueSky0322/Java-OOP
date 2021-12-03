@@ -8,17 +8,18 @@ package UI;
 import Classes.Citizen;
 import Classes.Noncitizen;
 import Classes.Person;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
-public class RegisterPage extends javax.swing.JFrame {
+public class RegisterPeoplePage extends javax.swing.JFrame {
 
     /**
      * Creates new form RegisterPage
      */
-    public RegisterPage() {
+    public RegisterPeoplePage() {
         initComponents();
         citizenRBtn.setSelected(true);
         icPassportNoLabel.setText("IC Number:");
@@ -59,6 +60,7 @@ public class RegisterPage extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(0, 0));
 
         nameLabel.setText("Name:");
 
@@ -66,30 +68,21 @@ public class RegisterPage extends javax.swing.JFrame {
 
         genderLabel.setText("Gender (M/F):");
 
+        telNoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         telNoLabel.setText("Telephone No.:");
 
         emailLabel.setText("Email:");
 
         addressLabel.setText("Address:");
 
-        nameTxt.setText("dasd");
-
-        ageTxt.setText("12");
-
-        genderTxt.setText("M");
-
-        telNoTxt.setText("364564");
-
-        emailTxt.setText("asdasdas");
-
-        addressTxt.setText("asdasdasd");
-
         TITLE.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         TITLE.setText("REGISTER PAGE");
 
         citizenshipLabel.setText("Citizenship:");
 
+        icPassportNoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         icPassportNoLabel.setText("IC Number:");
+        icPassportNoLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         citizenRBtn.setText("Citizen");
         citizenRBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -104,8 +97,6 @@ public class RegisterPage extends javax.swing.JFrame {
                 nonCitizenRBtnActionPerformed(evt);
             }
         });
-
-        icPassportNoTxt.setText("ABC");
 
         registerBtn.setText("Register");
         registerBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -128,13 +119,11 @@ public class RegisterPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(errorMessageLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(errorMessageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
+                        .addGap(115, 115, 115)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(65, 65, 65)
@@ -143,15 +132,20 @@ public class RegisterPage extends javax.swing.JFrame {
                                 .addComponent(backToLoginBtn))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ageLabel)
-                                    .addComponent(nameLabel)
-                                    .addComponent(telNoLabel)
-                                    .addComponent(emailLabel)
-                                    .addComponent(addressLabel)
-                                    .addComponent(genderLabel)
-                                    .addComponent(citizenshipLabel)
-                                    .addComponent(icPassportNoLabel))
-                                .addGap(38, 38, 38)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(icPassportNoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(1, 1, 1))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(emailLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(genderLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ageLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(addressLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(citizenshipLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(telNoLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addGap(44, 44, 44)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(ageTxt)
@@ -165,22 +159,18 @@ public class RegisterPage extends javax.swing.JFrame {
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(citizenRBtn)
                                             .addGap(34, 34, 34)
-                                            .addComponent(nonCitizenRBtn))))))
-                        .addGap(0, 123, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addComponent(TITLE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(nonCitizenRBtn)))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(TITLE)))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(TITLE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errorMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
                     .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -217,10 +207,13 @@ public class RegisterPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerBtn)
                     .addComponent(backToLoginBtn))
-                .addGap(21, 21, 21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(errorMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nonCitizenRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nonCitizenRBtnActionPerformed
@@ -279,8 +272,10 @@ public class RegisterPage extends javax.swing.JFrame {
 
             if (errorMessages.isEmpty()) {
                 ctz.register_vax_prg();
+                JOptionPane.showMessageDialog(null, "Registration successful!\n" + "\n" 
+                        + "Login Credentials\n" + "Username: " + ctz.getTel_no() + "\n" + "Password: " + ctz.getIc_no());
             } else {
-                errorMessageLabel.setText(errorMessages);
+                JOptionPane.showMessageDialog(null, errorMessages);
             }
         } else {
             citizenRBtn.setSelected(false);
@@ -292,11 +287,11 @@ public class RegisterPage extends javax.swing.JFrame {
             errorMessages += nctz.validate_passportno();
 
             if (errorMessages.isEmpty()) {
-                nctz.register_vax_prg();
+                JOptionPane.showMessageDialog(null, "Please proceed to payment to complete Registration.");
                 this.setVisible(false);
-                new PaymentPage(nctz.getPassport_no()).setVisible(true);
+                new PaymentPage(nctz).setVisible(true);
             } else {
-                errorMessageLabel.setText(errorMessages);
+                JOptionPane.showMessageDialog(null, errorMessages);
             }
         }
     }//GEN-LAST:event_registerBtnActionPerformed
@@ -323,20 +318,21 @@ public class RegisterPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegisterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterPeoplePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegisterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterPeoplePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegisterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterPeoplePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterPeoplePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegisterPage().setVisible(true);
+                new RegisterPeoplePage().setVisible(true);
             }
         });
     }

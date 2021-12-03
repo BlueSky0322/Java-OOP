@@ -23,46 +23,54 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="backToLoginBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="registerVaxAptBtn" alignment="0" max="32767" attributes="0"/>
-                              <Component id="viewVaxAptBtn" min="-2" pref="352" max="-2" attributes="0"/>
+                          <Component id="viewVaxSupplyBtn" min="-2" pref="352" max="-2" attributes="0"/>
+                          <Component id="viewVaxAptBtn" min="-2" pref="352" max="-2" attributes="0"/>
+                          <Component id="registerVaxAptBtn" min="-2" pref="352" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="viewPersonnelDetailsBtn" pref="352" max="32767" attributes="0"/>
+                              <Component id="registerPersonnelBtn" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="viewDetailsBtn" alignment="1" min="-2" pref="352" max="-2" attributes="0"/>
+                          <Component id="viewVaxPrgDetailsBtn" alignment="0" min="-2" pref="352" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="backToLoginBtn" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="viewDetailsBtn" min="-2" pref="38" max="-2" attributes="0"/>
+              <Component id="registerPersonnelBtn" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+              <Component id="viewPersonnelDetailsBtn" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="viewVaxPrgDetailsBtn" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="registerVaxAptBtn" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="viewVaxAptBtn" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="viewVaxSupplyBtn" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
               <Component id="backToLoginBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,12 +92,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewVaxAptBtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="viewDetailsBtn">
+    <Component class="javax.swing.JButton" name="viewVaxPrgDetailsBtn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="View Vaccination Programme Details"/>
+        <Property name="text" type="java.lang.String" value="View / Edit Vaccination Programme Details"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewDetailsBtnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewVaxPrgDetailsBtnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -97,7 +105,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="sansserif" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="PEOPLE MAIN MENU"/>
+        <Property name="text" type="java.lang.String" value="PERSONNEL MAIN MENU"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="backToLoginBtn">
@@ -106,6 +114,30 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backToLoginBtnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="viewVaxSupplyBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View / Edit Vaccine Supply"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewVaxSupplyBtn"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="registerPersonnelBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Register New Personnel"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerPersonnelBtnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="viewPersonnelDetailsBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View / Edit Personnel Records"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewPersonnelDetailsBtnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

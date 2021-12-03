@@ -5,12 +5,9 @@
  */
 package UI;
 
-import Classes.Citizen;
-import Classes.Person;
-
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class PeopleMenu extends javax.swing.JFrame {
 
@@ -33,8 +30,8 @@ public class PeopleMenu extends javax.swing.JFrame {
         registerVaxAptBtn = new javax.swing.JButton();
         viewVaxAptBtn = new javax.swing.JButton();
         viewDetailsBtn = new javax.swing.JButton();
-        viewVaxStatusBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        backToLoginBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,7 +42,7 @@ public class PeopleMenu extends javax.swing.JFrame {
             }
         });
 
-        viewVaxAptBtn.setText("View Vaccination Appointment");
+        viewVaxAptBtn.setText("View Vaccination Appointment / Vaccination Status");
         viewVaxAptBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewVaxAptBtnActionPerformed(evt);
@@ -59,65 +56,77 @@ public class PeopleMenu extends javax.swing.JFrame {
             }
         });
 
-        viewVaxStatusBtn.setText("View Vaccination Status");
-        viewVaxStatusBtn.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        jLabel1.setText("PEOPLE MAIN MENU");
+
+        backToLoginBtn.setText("Back to Login");
+        backToLoginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewVaxStatusBtnActionPerformed(evt);
+                backToLoginBtnActionPerformed(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        jLabel1.setText("MAIN MENU");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(viewVaxStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registerVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(viewVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(backToLoginBtn)
+                .addGap(163, 163, 163))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(registerVaxAptBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(viewVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(viewDetailsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(jLabel1)))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(viewDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(registerVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(viewVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewVaxStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(registerVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewVaxAptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(backToLoginBtn)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewDetailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsBtnActionPerformed
         this.setVisible(false);
-        new PeopleViewVaxPrgDetails().setVisible(true);
+        new PeopleViewVaxPrg().setVisible(true);
     }//GEN-LAST:event_viewDetailsBtnActionPerformed
 
     private void registerVaxAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerVaxAptBtnActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new PeopleRegisterVaxApt().setVisible(true);
     }//GEN-LAST:event_registerVaxAptBtnActionPerformed
 
     private void viewVaxAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewVaxAptBtnActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new PeopleViewVaxApt().setVisible(true);
     }//GEN-LAST:event_viewVaxAptBtnActionPerformed
 
-    private void viewVaxStatusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewVaxStatusBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_viewVaxStatusBtnActionPerformed
+    private void backToLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToLoginBtnActionPerformed
+        this.setVisible(false);
+        new LoginPage().setVisible(true);
+    }//GEN-LAST:event_backToLoginBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,10 +164,10 @@ public class PeopleMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backToLoginBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton registerVaxAptBtn;
     private javax.swing.JButton viewDetailsBtn;
     private javax.swing.JButton viewVaxAptBtn;
-    private javax.swing.JButton viewVaxStatusBtn;
     // End of variables declaration//GEN-END:variables
 }

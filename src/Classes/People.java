@@ -5,10 +5,25 @@
  */
 package Classes;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
-public abstract class People extends User{
-    public abstract void register_vax_prg();
+public class People extends User{
+    public void register_vax_prg(){
+        BufferedWriter bw;
+        try {
+            bw = new BufferedWriter(new FileWriter("People.txt", true));
+            bw.write(super.getName() + ":" + super.getAge() + ":" + super.getGender() + ":" + super.getTel_no() + ":"
+                    + super.getEmail() + ":" + super.getAddress() + ":" + super.getIs_citizen());
+            bw.write(System.getProperty("line.separator"));
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    };
 }

@@ -8,18 +8,16 @@ package Classes;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class Citizen extends People {
 
     private String ic_no;
 
-    public Citizen() {
-    }
-
-    ;
+    public Citizen() {};
     
     public Citizen(Person person, String ic_no) {
         this.ic_no = ic_no;
@@ -40,8 +38,8 @@ public class Citizen extends People {
     }
 
     public String validate_icno() {
-        if (this.ic_no.isEmpty() || !isNumeric(this.ic_no)) {
-            return "Invalid IC No.";
+        if (!DataAccess.isNumeric(this.ic_no)) {
+            return "Invalid IC No.\n";
         }
         return "";
     }

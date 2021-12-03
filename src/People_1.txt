@@ -1,4 +1,0 @@
-Ahmad:77:M:0123456789:ahmad@gmail.com:Putrajaya:true:010601131015
-Jasmine:34:F:0165456969:jasmine@gmail.com:Cyberjaya:true:050103151313
-Jamal:40:M:0189876541:jamal@outlook.com:Loke Yew:false:A12391028B
-Ryan:20:M:123:ryanng@gmail.com:Pudu:true:123

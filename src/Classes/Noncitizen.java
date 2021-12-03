@@ -11,12 +11,14 @@ import java.io.IOException;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
 public class Noncitizen extends People {
 
     private String passport_no;
 
+    public Noncitizen() {};       
+            
     public Noncitizen(Person person, String passport_no) {
         this.passport_no = passport_no;
         this.name = person.name;
@@ -27,27 +29,17 @@ public class Noncitizen extends People {
         this.address = person.address;
     }
 
-    /**
-     * Get the value of passport_no
-     *
-     * @return the value of passport_no
-     */
     public String getPassport_no() {
         return passport_no;
     }
 
-    /**
-     * Set the value of passport_no
-     *
-     * @param passport_no new value of passport_no
-     */
     public void setPassport_no(String passport_no) {
         this.passport_no = passport_no;
     }
 
     public String validate_passportno() {
         if (this.passport_no.isEmpty()) {
-            return "Invalid Passport No.";
+            return "Invalid Passport No.\n";
         }
         return "";
     }
@@ -66,7 +58,4 @@ public class Noncitizen extends People {
             e.printStackTrace();
         }
     }
-
-    
-
 }

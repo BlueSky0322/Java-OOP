@@ -5,26 +5,20 @@
  */
 package UI;
 
-import Classes.Citizen;
+import Classes.DataAccess;
 import Classes.Person;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Ryan Ng
+ * @author Ryan Ng, Sareindra
  */
-public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
+public class PeopleViewVaxPrg extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewVaxPrgDetails
      */
-    public PeopleViewVaxPrgDetails() {
+    public PeopleViewVaxPrg() {
         initComponents();
         icPassportNoTxt.setEditable(false);
     }
@@ -55,10 +49,11 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
         addressLabel = new javax.swing.JLabel();
         nameTxt = new javax.swing.JTextField();
         icPassportNoTxt = new javax.swing.JTextField();
-        lineLabel = new javax.swing.JLabel();
         titleCardLabel2 = new javax.swing.JLabel();
         modifyDetailsBtn = new javax.swing.JButton();
         errorMessageLabel = new javax.swing.JLabel();
+        titleCard = new javax.swing.JLabel();
+        backToMenuBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,9 +87,7 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
         addressLabel.setText("Address:");
         addressLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        lineLabel.setText("________________________________________________");
-
-        titleCardLabel2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        titleCardLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         titleCardLabel2.setText("Your Record:");
 
         modifyDetailsBtn.setText("Modify");
@@ -107,6 +100,16 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
         errorMessageLabel.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
         errorMessageLabel.setForeground(new java.awt.Color(255, 51, 51));
 
+        titleCard.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        titleCard.setText("VIEW SELF RECORDS");
+
+        backToMenuBtn.setText("Back to Menu");
+        backToMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backToMenuBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,61 +117,70 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(errorMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(90, 90, 90)
+                        .addComponent(titleCardLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(titleCardLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(90, 90, 90)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(titleCardLabel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(searchBtn))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lineLabel)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(ageLabel)
-                                            .addComponent(nameLabel)
-                                            .addComponent(telNoLabel)
-                                            .addComponent(emailLabel)
-                                            .addComponent(addressLabel)
-                                            .addComponent(genderLabel))
-                                        .addGap(38, 38, 38)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(emailTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(telNoTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(nameTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(icPassportNoLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(modifyDetailsBtn)
-                                            .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(134, 134, 134)
-                                .addComponent(titleCardLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(searchBtn)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backToMenuBtn)
+                .addGap(60, 60, 60)
+                .addComponent(modifyDetailsBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(errorMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(titleCard)
+                .addGap(144, 144, 144))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(emailLabel)
+                            .addComponent(addressLabel)
+                            .addComponent(telNoLabel)
+                            .addComponent(genderLabel)
+                            .addComponent(ageLabel)
+                            .addComponent(nameLabel)))
+                    .addComponent(icPassportNoLabel))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(emailTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(telNoTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(nameTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(12, 12, 12)
+                .addComponent(titleCard)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(titleCardLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchBtn))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(titleCardLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lineLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
                     .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -196,39 +208,38 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(icPassportNoLabel)
                     .addComponent(icPassportNoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(modifyDetailsBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(modifyDetailsBtn)
+                    .addComponent(backToMenuBtn))
                 .addGap(41, 41, 41)
                 .addComponent(errorMessageLabel)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        String search = searchTxt.getText();
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("People.txt"));
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] ary = line.split(":");
-                if (ary.length < 1) {
-                    break;
-                }
-                if (search.equals(ary[7])) {
-                    Arrays.toString(ary);
-                    nameTxt.setText(ary[0]);
-                    ageTxt.setText(ary[1]);
-                    genderTxt.setText(ary[2]);
-                    telNoTxt.setText(ary[3]);
-                    emailTxt.setText(ary[4]);
-                    addressTxt.setText(ary[5]);
-                    icPassportNoTxt.setText(ary[7]);
-                }
+        String id = searchTxt.getText();
+        String[] ary = DataAccess.get_data_by_var("People.txt", id, 8, 7);
+
+        if (!searchTxt.getText().equals("")) {
+            if (ary[0] == null) {
+                JOptionPane.showMessageDialog(null, "Record not found.");
+                searchTxt.setText("");
+            } else {
+                nameTxt.setText(ary[0]);
+                ageTxt.setText(ary[1]);
+                genderTxt.setText(ary[2]);
+                telNoTxt.setText(ary[3]);
+                emailTxt.setText(ary[4]);
+                addressTxt.setText(ary[5]);
+                icPassportNoTxt.setText(ary[7]);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            JOptionPane.showMessageDialog(null, "Some fields are empty");
         }
     }//GEN-LAST:event_searchBtnActionPerformed
 
@@ -241,7 +252,7 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
             Person person = new Person();
 
             String errorMessages = "";
-            
+
             String name = nameTxt.getText();
             errorMessages += person.validate_age(ageTxt.getText());
             errorMessages += person.validate_gender(genderTxt.getText());
@@ -264,17 +275,22 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
             person.setAddress(address);
 
             errorMessages += person.validate_name();
-            errorMessages += person.validate_tel_no_format();
+            errorMessages += person.validate_tel_no();
             errorMessages += person.validate_email();
             errorMessages += person.validate_address();
-            
+
             if (errorMessages.isEmpty()) {
-                person.modify_details(search, "modify");
+                person.modify_person_details(search, "modify");
             } else {
                 errorMessageLabel.setText(errorMessages);
             }
         }
     }//GEN-LAST:event_modifyDetailsBtnActionPerformed
+
+    private void backToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuBtnActionPerformed
+        this.setVisible(false);
+        new PeopleMenu().setVisible(true);
+    }//GEN-LAST:event_backToMenuBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,21 +309,23 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PeopleViewVaxPrgDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeopleViewVaxPrg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PeopleViewVaxPrgDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeopleViewVaxPrg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PeopleViewVaxPrgDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeopleViewVaxPrg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PeopleViewVaxPrgDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeopleViewVaxPrg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PeopleViewVaxPrgDetails().setVisible(true);
+                new PeopleViewVaxPrg().setVisible(true);
             }
         });
     }
@@ -317,6 +335,7 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
     private javax.swing.JTextField addressTxt;
     private javax.swing.JLabel ageLabel;
     private javax.swing.JTextField ageTxt;
+    private javax.swing.JButton backToMenuBtn;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JLabel errorMessageLabel;
@@ -324,7 +343,6 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
     private javax.swing.JTextField genderTxt;
     private javax.swing.JLabel icPassportNoLabel;
     private javax.swing.JTextField icPassportNoTxt;
-    private javax.swing.JLabel lineLabel;
     private javax.swing.JButton modifyDetailsBtn;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTxt;
@@ -332,6 +350,7 @@ public class PeopleViewVaxPrgDetails extends javax.swing.JFrame {
     private javax.swing.JTextField searchTxt;
     private javax.swing.JLabel telNoLabel;
     private javax.swing.JTextField telNoTxt;
+    private javax.swing.JLabel titleCard;
     private javax.swing.JLabel titleCardLabel;
     private javax.swing.JLabel titleCardLabel2;
     // End of variables declaration//GEN-END:variables
