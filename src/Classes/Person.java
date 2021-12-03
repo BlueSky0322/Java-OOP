@@ -26,8 +26,7 @@ public class Person {
     protected String address;
     protected boolean is_citizen;
 
-    public Person() {
-    }
+    public Person() {}
 
     ;
     
@@ -155,12 +154,11 @@ public class Person {
 
         BufferedWriter bw;
         try {
-            bw = new BufferedWriter(new FileWriter("Appointment.txt"));
+            bw = new BufferedWriter(new FileWriter("People.txt"));
             try (PrintWriter pw = new PrintWriter(bw)) {
                 for (String[] element : arrayList) {
                     pw.println(element[0] + ":" + element[1] + ":" + element[2] + ":" + element[3] + ":"
-                            + element[4] + ":" + element[5] + ":" + element[6] + ":"
-                            + element[7] + ":" + element[8]);
+                            + element[4] + ":" + element[5] + ":" + element[6] + ":" + element[7]);
                 }
                 pw.flush();
             }
