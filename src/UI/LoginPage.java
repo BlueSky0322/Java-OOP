@@ -135,7 +135,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         user.setUsername(username);
         user.setPassword(password);
-        
+
         if (usernameTxt.getText().equals("") || passwordTxt.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Some fields are Empty!");
         } else {
@@ -152,23 +152,27 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_loginPeopleBtnActionPerformed
 
     private void loginPersonnelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPersonnelBtnActionPerformed
-        String username = usernameTxt.getText();
-        String password = passwordTxt.getText();
-
-        user.setUsername(username);
-        user.setPassword(password);
-        
-        String user_type = user.verify_admin_login();
-        if (user_type.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Invalid login!");
-            usernameTxt.setText("");
-            passwordTxt.setText("");
-
+        if (usernameTxt.getText().equals("") || passwordTxt.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Some fields are empty.");
         } else {
-            JOptionPane.showMessageDialog(null, "Login successful!");
-            this.setVisible(false);
-            new PersonnelMenu(user_type).setVisible(true);
+            String username = usernameTxt.getText();
+            String password = passwordTxt.getText();
 
+            user.setUsername(username);
+            user.setPassword(password);
+
+            String user_type = user.verify_admin_login();
+            if (user_type.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Invalid login!");
+                usernameTxt.setText("");
+                passwordTxt.setText("");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Login successful!");
+                this.setVisible(false);
+                new PersonnelMenu(user_type).setVisible(true);
+
+            }
         }
     }//GEN-LAST:event_loginPersonnelBtnActionPerformed
 

@@ -221,7 +221,9 @@ public class PaymentPage extends javax.swing.JFrame {
                     if (cash.validate_amount_paid()) {
                         cash.calc_balance();
                         if (cash.make_payment()) {
-                            JOptionPane.showMessageDialog(null, "Payment Successful!");
+                            JOptionPane.showMessageDialog(null, "Payment Successful!\n" + "\n" + "Login Credentials\n"
+                                    + "Username: " + nctz.getTel_no() + "\n"
+                                    + "Password: " + nctz.getPassport_no());
                             nctz.register_vax_prg();
                             this.setVisible(false);
                             new LoginPage().setVisible(true);
@@ -251,7 +253,9 @@ public class PaymentPage extends javax.swing.JFrame {
                             bt.setAmount_paid(Double.parseDouble(amountPaidTxt.getText()));
                             if (bt.validate_amount_paid()) {
                                 if (bt.make_payment()) {
-                                    JOptionPane.showMessageDialog(null, "Payment Successful!");
+                                    JOptionPane.showMessageDialog(null, "Payment Successful!\n" + "\n" + "Login Credentials\n"
+                                            + "Username: " + nctz.getTel_no() + "\n"
+                                            + "Password: " + nctz.getPassport_no());
                                     nctz.register_vax_prg();
                                     this.setVisible(false);
                                     new LoginPage().setVisible(true);
@@ -274,7 +278,8 @@ public class PaymentPage extends javax.swing.JFrame {
     }//GEN-LAST:event_payBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        int result = JOptionPane.showConfirmDialog(this, "Proceed with payment cancellation?\nYou will have to register again.", "Confirmation",
+        int result = JOptionPane.showConfirmDialog(this, "Proceed with payment cancellation?\n"
+                + "You will have to register again.", "Confirmation",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE);
         switch (result) {

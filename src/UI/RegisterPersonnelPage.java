@@ -21,7 +21,7 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
      * Creates new form RegisterPage
      */
     private String user_type = "";
-    
+
     public RegisterPersonnelPage(String user_type) {
         initComponents();
         this.user_type = user_type;
@@ -261,7 +261,8 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
 
                         personnel.register_personnel();
                         clearFields();
-                        JOptionPane.showMessageDialog(null, "Registration Successful.");
+                        JOptionPane.showMessageDialog(null, "Registration successful!\n" + "\n" + "Login Credentials\n"
+                                + "Username: " + personnel.getIc_no() + "\n" + "Password: " + personnel.getEmp_id());
                     } else {
                         JOptionPane.showMessageDialog(null, "Invalid IC Number!");
                     }
@@ -274,7 +275,8 @@ public class RegisterPersonnelPage extends javax.swing.JFrame {
 
                     personnel.register_personnel();
                     clearFields();
-                    JOptionPane.showMessageDialog(null, "Registration Successful.");
+                    JOptionPane.showMessageDialog(null, "Registration successful!\n" + "\n" + "Login Credentials\n"
+                            + "Username: " + personnel.getIc_no() + "\n" + "Password: " + personnel.getEmp_id());
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid IC Number!");
                 }
