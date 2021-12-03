@@ -6,6 +6,7 @@
 package UI;
 
 import Classes.Citizen;
+import Classes.DataAccess;
 import Classes.Person;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -227,28 +228,24 @@ public class PeopleViewVaxPrg extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        String search = searchTxt.getText();
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("People.txt"));
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] ary = line.split(":");
-                if (ary.length < 1) {
-                    break;
-                }
-                if (search.equals(ary[7])) {
-                    Arrays.toString(ary);
-                    nameTxt.setText(ary[0]);
-                    ageTxt.setText(ary[1]);
-                    genderTxt.setText(ary[2]);
-                    telNoTxt.setText(ary[3]);
-                    emailTxt.setText(ary[4]);
-                    addressTxt.setText(ary[5]);
-                    icPassportNoTxt.setText(ary[7]);
-                }
+        String id = searchTxt.getText();
+        String[] ary = DataAccess.get_data_by_var("People.txt", id, 8, 7);
+
+        if (!searchTxt.getText().equals("")) {
+            if (ary[0] == null) {
+                JOptionPane.showMessageDialog(null, "Record not found.");
+                searchTxt.setText("");
+            } else {
+                nameTxt.setText(ary[0]);
+                ageTxt.setText(ary[1]);
+                genderTxt.setText(ary[2]);
+                telNoTxt.setText(ary[3]);
+                emailTxt.setText(ary[4]);
+                addressTxt.setText(ary[5]);
+                icPassportNoTxt.setText(ary[7]);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            JOptionPane.showMessageDialog(null, "Some fields are empty");
         }
     }//GEN-LAST:event_searchBtnActionPerformed
 
@@ -261,7 +258,7 @@ public class PeopleViewVaxPrg extends javax.swing.JFrame {
             Person person = new Person();
 
             String errorMessages = "";
-            
+
             String name = nameTxt.getText();
             errorMessages += person.validate_age(ageTxt.getText());
             errorMessages += person.validate_gender(genderTxt.getText());
@@ -287,7 +284,7 @@ public class PeopleViewVaxPrg extends javax.swing.JFrame {
             errorMessages += person.validate_tel_no();
             errorMessages += person.validate_email();
             errorMessages += person.validate_address();
-            
+
             if (errorMessages.isEmpty()) {
                 person.modify_person_details(search, "modify");
             } else {
