@@ -88,14 +88,14 @@ public class Person {
 
     public String validate_name() {
         if (DataAccess.isNumeric(this.name)) {
-            return "Invalid Name, ";
+            return "Invalid Name\n";
         }
         return "";
     }
 
     public String validate_age(String age) {
         if (!DataAccess.isNumeric(age)) {
-            return "Invalid Age, ";
+            return "Invalid Age\n";
         }
         return "";
     }
@@ -104,26 +104,26 @@ public class Person {
         if (gender.equals("F") || gender.equals("M")) {
             return "";
         }
-        return "Invalid gender, ";
+        return "Invalid gender\n";
     }
 
     public String validate_tel_no() {
         if (!DataAccess.isNumeric(this.tel_no)) {
-            return "Invalid Telephone No., ";
+            return "Invalid Telephone No.\n";
         }
         return "";
     }
 
     public String validate_email() {
         if (this.email.isEmpty()) {
-            return "Invalid Email, ";
+            return "Invalid Email\n";
         }
         return "";
     }
 
     public String validate_address() {
         if (this.address.isEmpty()) {
-            return "Invalid Address, ";
+            return "Invalid Address\n";
         }
         return "";
     }
@@ -140,6 +140,7 @@ public class Person {
                     element[3] = this.tel_no;
                     element[4] = this.email;
                     element[5] = this.address;
+                    element[6] = this.is_citizen ? "true" : "false";
                 }
             }
         } else {
@@ -148,6 +149,7 @@ public class Person {
                 String[] value = iterator.next();
                 if (search.equals(value[7])) {
                     iterator.remove();
+                    arrayList.remove(value);
                 }
             }
         }

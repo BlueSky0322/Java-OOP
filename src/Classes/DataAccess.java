@@ -34,6 +34,16 @@ public class DataAccess {
         return arrayList;
     }
     
+    public static boolean validate_duplicate(String filename, String data, String initial, int column) {
+        ArrayList<String[]> arrayList = DataAccess.get_data(filename);
+        for (String[] element : arrayList) {
+            if (!data.equals(initial) && data.equals(element[column])) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public static boolean validate_data(String filename, String data, int column) {
         ArrayList<String[]> arrayList = DataAccess.get_data(filename);
         for (String[] element : arrayList) {

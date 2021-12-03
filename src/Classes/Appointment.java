@@ -124,7 +124,7 @@ public class Appointment implements VaxDetails, GenerateID {
     public int generateID() {
         return ThreadLocalRandom.current().nextInt(100, 999 + 1);
     }
-    
+
     public boolean validate_ic_passport_no(String filename, String ic_passport_no, int column) {
         ArrayList<String[]> arrayList = DataAccess.get_data(filename);
         for (String[] element : arrayList) {
@@ -191,8 +191,8 @@ public class Appointment implements VaxDetails, GenerateID {
         BufferedWriter bw;
         try {
             bw = new BufferedWriter(new FileWriter("Appointment.txt", true));
-            bw.write(this.getIc_passport_no() + ":" + this.getVaccine_name() + ":" + this.getAppointment_id() + ":" + this.getCentre_name() + ":" 
-                    + this.getCentre_address() + ":" + this.getFirst_dose_date() + ":" + this.getSecond_dose_date() + ":" + this.getBooster_dose_date() + ":" 
+            bw.write(this.getIc_passport_no() + ":" + this.getVaccine_name() + ":" + this.getAppointment_id() + ":" + this.getCentre_name() + ":"
+                    + this.getCentre_address() + ":" + this.getFirst_dose_date() + ":" + this.getSecond_dose_date() + ":" + this.getBooster_dose_date() + ":"
                     + this.getVax_status());
             bw.write(System.getProperty("line.separator"));
             bw.close();
@@ -203,7 +203,7 @@ public class Appointment implements VaxDetails, GenerateID {
 
     public ArrayList<String[]> modify_apt_details(String search, String mode) {
         ArrayList<String[]> arrayList = DataAccess.get_data("Appointment.txt");
-        
+
         if (mode.equals("modify")) {
             for (String[] element : arrayList) {
                 if (search.equals(element[0])) {
@@ -223,6 +223,7 @@ public class Appointment implements VaxDetails, GenerateID {
                 String[] value = iterator.next();
                 if (search.equals(value[0])) {
                     iterator.remove();
+                    arrayList.remove(value);
                 }
             }
         }
@@ -234,7 +235,7 @@ public class Appointment implements VaxDetails, GenerateID {
                 for (String[] element : arrayList) {
                     pw.println(element[0] + ":" + element[1] + ":" + element[2] + ":" + element[3] + ":"
                             + element[4] + ":" + element[5] + ":" + element[6] + ":"
-                            + element[7] + ":" + element[8] );
+                            + element[7] + ":" + element[8]);
                 }
                 pw.flush();
             }

@@ -17,6 +17,8 @@ public class Noncitizen extends People {
 
     private String passport_no;
 
+    public Noncitizen() {};       
+            
     public Noncitizen(Person person, String passport_no) {
         this.passport_no = passport_no;
         this.name = person.name;
@@ -37,7 +39,7 @@ public class Noncitizen extends People {
 
     public String validate_passportno() {
         if (this.passport_no.isEmpty()) {
-            return "Invalid Passport No.";
+            return "Invalid Passport No.\n";
         }
         return "";
     }

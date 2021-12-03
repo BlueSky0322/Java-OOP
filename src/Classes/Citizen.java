@@ -39,7 +39,7 @@ public class Citizen extends People {
 
     public String validate_icno() {
         if (!DataAccess.isNumeric(this.ic_no)) {
-            return "Invalid IC No.";
+            return "Invalid IC No.\n";
         }
         return "";
     }

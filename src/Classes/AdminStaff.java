@@ -37,6 +37,7 @@ public class AdminStaff extends Personnel {
                 String[] value = iterator.next();
                 if (search.equals(value[0])) {
                     iterator.remove();
+                    arrayList.remove(value);
                 }
             }
         }
