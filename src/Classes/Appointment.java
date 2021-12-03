@@ -176,7 +176,7 @@ public class Appointment implements VaxDetails, GenerateID {
         }
         return 0;
     }
-    
+
     public String retrieve_centre_details(String centre_id, int column) {
         ArrayList<String[]> arrayList = DataAccess.get_data("Centre.txt");
         for (String[] element : arrayList) {
