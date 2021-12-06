@@ -6,8 +6,10 @@
 package UI;
 
 import Classes.Citizen;
+import Classes.DataAccess;
 import Classes.Noncitizen;
 import Classes.Person;
+import java.io.File;
 import javax.swing.JOptionPane;
 
 /**
@@ -231,6 +233,7 @@ public class RegisterPeoplePage extends javax.swing.JFrame {
     }//GEN-LAST:event_citizenRBtnActionPerformed
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
+
         Person person = new Person();
 
         String errorMessages = "";
@@ -271,9 +274,20 @@ public class RegisterPeoplePage extends javax.swing.JFrame {
             errorMessages += ctz.validate_icno();
 
             if (errorMessages.isEmpty()) {
-                ctz.register_vax_prg();
-                JOptionPane.showMessageDialog(null, "Registration successful!\n" + "\n" 
-                        + "Login Credentials\n" + "Username: " + ctz.getTel_no() + "\n" + "Password: " + ctz.getIc_no());
+                File f = new File("People.txt");
+                if (f.exists() && !f.isDirectory()) {
+                    if (DataAccess.validate_data("People.txt", ic_no, 7)) {
+                        JOptionPane.showMessageDialog(null, "Duplicate record detected! Please try again.");
+                    } else {
+                        ctz.register_vax_prg();
+                        JOptionPane.showMessageDialog(null, "Registration successful!\n" + "\n"
+                                + "Login Credentials\n" + "Username: " + ctz.getTel_no() + "\n" + "Password: " + ctz.getIc_no());
+                    }
+                } else {
+                    ctz.register_vax_prg();
+                    JOptionPane.showMessageDialog(null, "Registration successful!\n" + "\n"
+                            + "Login Credentials\n" + "Username: " + ctz.getTel_no() + "\n" + "Password: " + ctz.getIc_no());
+                }
             } else {
                 JOptionPane.showMessageDialog(null, errorMessages);
             }
@@ -287,9 +301,20 @@ public class RegisterPeoplePage extends javax.swing.JFrame {
             errorMessages += nctz.validate_passportno();
 
             if (errorMessages.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please proceed to payment to complete Registration.");
-                this.setVisible(false);
-                new PaymentPage(nctz).setVisible(true);
+                File f = new File("People.txt");
+                if (f.exists() && !f.isDirectory()) {
+                    if (DataAccess.validate_data("People.txt", passport_no, 7)) {
+                        JOptionPane.showMessageDialog(null, "Duplicate record detected! Please try again.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Please proceed to payment to complete Registration.");
+                        this.setVisible(false);
+                        new PaymentPage(nctz).setVisible(true);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please proceed to payment to complete Registration.");
+                    this.setVisible(false);
+                    new PaymentPage(nctz).setVisible(true);
+                }
             } else {
                 JOptionPane.showMessageDialog(null, errorMessages);
             }

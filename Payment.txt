@@ -1,2 +1,2 @@
 ABC:Bank Transfer:013213:asd:50.0
-ABC:Bank Transfer:123123123:asda:50.0
+asdasdasd13:Cash:50.0:0.0

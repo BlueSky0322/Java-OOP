@@ -22,7 +22,6 @@ public class PersonnelMenu extends javax.swing.JFrame {
             registerVaxAptBtn.setVisible(false);
             viewPersonnelDetailsBtn.setVisible(false);
             viewVaxPrgDetailsBtn.setVisible(false);
-            viewVaxSupplyBtn.setVisible(false); 
             this.setSize(450,250);
         }
     }
