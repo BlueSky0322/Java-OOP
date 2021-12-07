@@ -29,12 +29,12 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
 
     public PersonnelViewVaxApt(String user_type) {
         initComponents();
-        
+
         this.user_type = user_type;
-        if(this.user_type.equals("Healthcare Personnel")){
+        if (this.user_type.equals("Healthcare Personnel")) {
             cancelAptBtn.setEnabled(false);
         }
-        
+
         icPassportNoTxt.setEditable(false);
         centreAddressTxt.setEditable(false);
         arrayList = DataAccess.get_data("Appointment.txt");
@@ -361,10 +361,14 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
 
     private void cancelAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAptBtnActionPerformed
         Appointment apt = new Appointment();
-        arrayList = apt.modify_apt_details(icPassportNoTxt.getText(), "remove");
-        listIterator = arrayList.listIterator();
-        clearFields();
-        JOptionPane.showMessageDialog(null, "Appointment cancelled.");
+        if (icPassportNoTxt.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Some fields are Empty!");
+        } else {
+            arrayList = apt.modify_apt_details(icPassportNoTxt.getText(), "remove");
+            listIterator = arrayList.listIterator();
+            clearFields();
+            JOptionPane.showMessageDialog(null, "Appointment cancelled.");
+        }
     }//GEN-LAST:event_cancelAptBtnActionPerformed
 
     private void modifyAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyAptBtnActionPerformed
@@ -546,7 +550,7 @@ public class PersonnelViewVaxApt extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(PersonnelViewVaxApt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-      
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

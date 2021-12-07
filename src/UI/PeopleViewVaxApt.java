@@ -269,9 +269,14 @@ public class PeopleViewVaxApt extends javax.swing.JFrame {
 
     private void cancelAptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAptBtnActionPerformed
         Appointment apt = new Appointment();
-        listIterator = apt.modify_apt_details(icPassportNoTxt.getText(), "remove").listIterator();
-        clearFields();
-        JOptionPane.showMessageDialog(null, "Changes have been made.");
+        if (icPassportNoTxt.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Some fields are empty!");
+        } else {
+            arrayList = apt.modify_apt_details(icPassportNoTxt.getText(), "remove");
+            listIterator = arrayList.listIterator();
+            clearFields();
+            JOptionPane.showMessageDialog(null, "Appointment cancelled.");
+        }
     }//GEN-LAST:event_cancelAptBtnActionPerformed
 
     void clearFields() {

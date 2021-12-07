@@ -281,6 +281,7 @@ public class PeopleViewVaxPrg extends javax.swing.JFrame {
 
             if (errorMessages.isEmpty()) {
                 person.modify_person_details(search, "modify");
+                JOptionPane.showMessageDialog(null, "Record updated.");
             } else {
                 errorMessageLabel.setText(errorMessages);
             }

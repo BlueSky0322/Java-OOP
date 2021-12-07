@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Classes;
+
 /**
  *
  * @author Ryan Ng, Sareindra
@@ -31,8 +32,12 @@ public class User extends Person {
 
     public String verify_admin_login() {
         String[] user_data = DataAccess.get_data_by_var("Personnel.txt", this.username, 6, 0);
-        if(user_data[0].equals(this.username) && user_data[4].equals(this.password)){
-            return user_data[5];
+        if (user_data[0] == null) {
+            return "";
+        } else {
+            if (user_data[0].equals(this.username) && user_data[4].equals(this.password)) {
+                return user_data[5];
+            }
         }
         return "";
     }

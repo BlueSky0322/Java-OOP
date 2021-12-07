@@ -5,7 +5,4 @@ Ryan:20:M:0122028628:ryanng@gmail.com:Pudu:true:123
 Abdul:25:M:8689787987:abdul@mail.com:Bangladesh:false:456456
 aaab:33:M:666:sdasd:asdasd:false:666
 Jesus:1000:M:921830:daskjhdajs:sadjalksdj:false:A1B2C3
-asdasdas:12:M:12312312:asdasd:asdasd:false:asasd
-dasdada:121:F:1231231231:sdasdas:dasdasdasdasd:false:asdasdasd13
-ABCMan:45:M:098098098:sdjlaksdj:dkljasjdlakj:true:192301298
-EFGMan:99:F:69696969:aksdjlakjsdlsaj:asjdlakjsdlk:true:665556655
+Abdullah:45:M:9999:asdjaksdj:alkdsjklsd:false:A8A8A8
